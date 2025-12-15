@@ -189,3 +189,99 @@ copyright {
   font-size: 13px;
   color: #888;
 }
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: #f7f3ec;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.logo-wrap img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+nav a {
+  margin-left: 28px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+}
+
+nav a.active {
+  border-bottom: 2px solid #111;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  background: #f7f3ec;
+}
+
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  margin-top: 35px;
+}
+
+.btn-primary {
+  background: #111;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 6px;
+  margin-right: 12px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  border: 2px solid #111;
+  padding: 14px 26px;
+  border-radius: 6px;
+  color: #111;
+  text-decoration: none;
+}
+
+.trust-line {
+  display: block;
+  margin-top: 24px;
+  opacity: 0.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-buttons a {
+    display: block;
+    margin: 12px auto;
+  }
+
+  .header {
+    padding: 14px 20px;
+  }
+}
