@@ -99,3 +99,44 @@ nav a:hover {
   background: #111;
   color: #fff;
 }
+/* INDICATOR SECTION */
+.indicator {
+  padding: 80px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.indicator h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.indicator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  padding: 30px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #f8f5f0;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
