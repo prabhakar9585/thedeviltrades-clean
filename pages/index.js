@@ -48,3 +48,31 @@ export default function Home() {
     </div>
   </div>
 </section>
+<footer id="contact" className="footer">
+  <div className="footer-content">
+    <h3>The Devil Trades</h3>
+
+    <p className="footer-tagline">
+      Trade with discipline. Not emotions.
+    </p>
+
+    <div className="footer-contact">
+      <p>📞 WhatsApp: <strong>95856 78489</strong></p>
+      <p>📧 Email: support@thedeviltrades.com</p>
+    </div>
+
+    <div className="disclaimer">
+      <h4>Disclaimer</h4>
+      <p>
+        Trading in financial markets involves risk.  
+        The Devil Trades does not provide guaranteed profits.
+        All content is for educational purposes only.
+        Users are responsible for their own trading decisions.
+      </p>
+    </div>
+
+    <p className="copyright">
+      © {new Date().getFullYear()} The Devil Trades. All rights reserved.
+    </p>
+  </div>
+</footer>
