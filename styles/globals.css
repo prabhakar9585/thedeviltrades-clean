@@ -153,3 +153,21 @@ body {
   padding: 14px;
   font-size: 13px;
 }
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-wrap img {
+  height: 120px;
+  width: auto;
+}
+
+.brand-text {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #000;
+  white-space: nowrap;
+}
