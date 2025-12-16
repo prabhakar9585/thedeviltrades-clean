@@ -1,23 +1,34 @@
-import Link from "next/link";
+import { useState } from "react";
+
+const images = {
+  profits: Array.from({ length: 50 }, (_, i) => `/profits/p${i + 1}.png`),
+  losses: Array.from({ length: 50 }, (_, i) => `/losses/l${i + 1}.png`),
+  notrades: Array.from({ length: 50 }, (_, i) => `/notrades/n${i + 1}.png`)
+};
 
 export default function Indicator() {
-  return (
-    <main style={{ textAlign: "center", padding: 60 }}>
-      <h1>Indicators</h1>
+  const [active, setActive] = useState("profits");
 
-      <Link href="/indicator/nifty50">
-        <div style={card}>NIFTY 50</div>
-      </Link>
-    </main>
+  return (
+    <div className="indicator-page">
+      <h1>NIFTY 50 – Indicator</h1>
+
+      <div className="indicator-tabs">
+        <button onClick={() => setActive("profits")}>Profit Trades</button>
+        <button onClick={() => setActive("losses")}>Loss Trades</button>
+        <button onClick={() => setActive("notrades")}>No Trade Days</button>
+      </div>
+
+      <div className="gallery">
+        {images[active].map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            onError={(e) => (e.target.style.display = "none")}
+            alt=""
+          />
+        ))}
+      </div>
+    </div>
   );
 }
-
-const card = {
-  margin: "40px auto",
-  width: "220px",
-  padding: "20px",
-  border: "2px solid #000",
-  borderRadius: "10px",
-  cursor: "pointer",
-  fontWeight: "bold"
-};
