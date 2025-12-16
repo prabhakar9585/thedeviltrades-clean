@@ -7,9 +7,13 @@ export default function Home() {
         <title>Devil Trades</title>
       </Head>
 
-      <section className="hero">
-        <div className="hero-overlay">
-          {/* TEXT REMOVED AS REQUESTED */}
+      <section className="home-hero">
+        <div className="overlay">
+          <p className="subtitle">
+            We don’t promise profits.
+            <br />
+            We teach discipline, psychology & real market strategy.
+          </p>
         </div>
       </section>
     </>

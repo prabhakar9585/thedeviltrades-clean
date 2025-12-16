@@ -1,7 +1,6 @@
 export default function Losses() {
   return (
     <>
-      <Header />
       <h1 style={{ padding: "30px" }}>Loss Trades</h1>
 
       {[...Array(20)].map((_, i) => (

@@ -1,7 +1,6 @@
 export default function Profits() {
   return (
     <>
-      <Header />
       <h1 style={{ padding: "30px" }}>Profit Trades</h1>
 
       {[...Array(20)].map((_, i) => (
