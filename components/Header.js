@@ -10,12 +10,14 @@ export default function Header() {
         </div>
 
         <nav className="nav">
-          <Link href="/">Home</Link>
-          <Link href="/courses">Courses</Link>
-          <Link href="/#indicator">Indicator</Link>
-          <Link href="/#about">About</Link>
-          <Link href="/#contact">Contact</Link>
-        </nav>
+  <a href="/">Home</a>
+  <a href="/courses">Courses</a>
+  <a href="/indicator">Indicator</a>
+  <a href="/accuracy">Accuracy</a>
+  <a href="/purchase">Purchase</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</nav>
       </div>
     </header>
   );
