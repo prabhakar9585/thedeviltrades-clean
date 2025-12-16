@@ -1,27 +1,18 @@
-export default function NoTradeDays() {
-  // Auto-load images: n1.png, n2.png, n3.png ...
-  const images = Array.from({ length: 50 }, (_, i) => `/notrades/n${i + 1}.png`);
+import Header from "../../components/Header";
 
+export default function NoTrades() {
   return (
-    <div style={{ padding: "40px" }}>
-      <h1>No Trade Days</h1>
-      <p>Days where discipline was followed and no trades were taken.</p>
+    <>
+      <Header />
+      <h1 style={{ padding: "30px" }}>No Trade Days</h1>
 
-      {images.map((img, index) => (
+      {[...Array(20)].map((_, i) => (
         <img
-          key={index}
-          src={img}
-          alt={`No trade day ${index + 1}`}
-          style={{
-            width: "100%",
-            maxWidth: "650px",
-            display: "block",
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-          }}
-          onError={(e) => (e.target.style.display = "none")}
+          key={i}
+          src={`/notrades/n${i + 1}.png`}
+          style={{ width: "90%", margin: "20px auto", display: "block" }}
         />
       ))}
-    </div>
+    </>
   );
 }

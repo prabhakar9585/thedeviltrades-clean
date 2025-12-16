@@ -1,19 +1,18 @@
-export default function ProfitTrades() {
-  const images = Array.from({ length: 50 }, (_, i) => `/profits/p${i + 1}.png`);
+import Header from "../../components/Header";
 
+export default function Profits() {
   return (
-    <div style={{ padding: "40px" }}>
-      <h1>Profit Trades</h1>
+    <>
+      <Header />
+      <h1 style={{ padding: "30px" }}>Profit Trades</h1>
 
-      {images.map((img, i) => (
+      {[...Array(20)].map((_, i) => (
         <img
           key={i}
-          src={img}
-          alt=""
-          style={{ width: "100%", maxWidth: "600px", marginBottom: "20px" }}
-          onError={(e) => (e.target.style.display = "none")}
+          src={`/profits/p${i + 1}.png`}
+          style={{ width: "90%", margin: "20px auto", display: "block" }}
         />
       ))}
-    </div>
+    </>
   );
 }

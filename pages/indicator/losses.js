@@ -1,27 +1,18 @@
-export default function LossTrades() {
-  // Auto-load images: l1.png, l2.png, l3.png ...
-  const images = Array.from({ length: 50 }, (_, i) => `/losses/l${i + 1}.png`);
+import Header from "../../components/Header";
 
+export default function Losses() {
   return (
-    <div style={{ padding: "40px" }}>
-      <h1>Loss Trades</h1>
-      <p>Transparent record of loss trades for learning & discipline.</p>
+    <>
+      <Header />
+      <h1 style={{ padding: "30px" }}>Loss Trades</h1>
 
-      {images.map((img, index) => (
+      {[...Array(20)].map((_, i) => (
         <img
-          key={index}
-          src={img}
-          alt={`Loss trade ${index + 1}`}
-          style={{
-            width: "100%",
-            maxWidth: "650px",
-            display: "block",
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-          }}
-          onError={(e) => (e.target.style.display = "none")}
+          key={i}
+          src={`/losses/l${i + 1}.png`}
+          style={{ width: "90%", margin: "20px auto", display: "block" }}
         />
       ))}
-    </div>
+    </>
   );
 }
