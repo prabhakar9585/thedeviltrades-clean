@@ -101,40 +101,33 @@ body {
 }
 
 /* ================= HOME HERO ================= */
-/* HOME HERO FIX */
+/* ===== HOME PAGE FINAL ===== */
 .home-hero {
-  height: calc(80vh - 160px); /* header safe */
+  height: calc(100vh - 160px); /* header height safe */
+  width: 100%;
   background-image: url("/devil-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* DARK OVERLAY */
+/* Light overlay so image is fully visible */
 .hero-overlay {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.25); /* lighter overlay */
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  padding-bottom: 80px;
   text-align: center;
 }
 
-/* TEXT */
-.hero-title {
-  color: #ff3c00;
-  font-size: 64px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
-}
-
 .hero-subtitle {
-  color: #fff;
+  color: #ffffff;
   font-size: 18px;
-  max-width: 700px;
   line-height: 1.6;
+  max-width: 720px;
 }
 
 /* ================= COURSES ================= */
