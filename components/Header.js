@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function Header() {
   const [showIndicator, setShowIndicator] = useState(false);
+  const [showNifty, setShowNifty] = useState(false);
 
   return (
     <header className="header">
@@ -14,26 +15,39 @@ export default function Header() {
           <span className="brand-text">Devil Trades</span>
         </div>
 
-        {/* NAV */}
+        {/* NAVIGATION */}
         <nav className="nav">
-
           <Link href="/">Home</Link>
-
           <Link href="/courses">Courses</Link>
 
-          {/* INDICATOR */}
+          {/* INDICATOR LEVEL 1 */}
           <div
             className="nav-item"
             onMouseEnter={() => setShowIndicator(true)}
-            onMouseLeave={() => setShowIndicator(false)}
+            onMouseLeave={() => {
+              setShowIndicator(false);
+              setShowNifty(false);
+            }}
           >
-            <Link href="/indicator" className="nav-link">
-              Indicator ▾
-            </Link>
+            <span className="nav-link">Indicator ▾</span>
 
             {showIndicator && (
-              <div className="indicator-dropdown">
-                <Link href="/indicator">NIFTY 50</Link>
+              <div className="dropdown level-1">
+                <div
+                  className="dropdown-item"
+                  onMouseEnter={() => setShowNifty(true)}
+                >
+                  NIFTY 50 ▸
+                </div>
+
+                {/* LEVEL 2 */}
+                {showNifty && (
+                  <div className="dropdown level-2">
+                    <Link href="/indicator/profits">Profit Trades</Link>
+                    <Link href="/indicator/losses">Loss Trades</Link>
+                    <Link href="/indicator/notrades">No Trade Days</Link>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -42,7 +56,6 @@ export default function Header() {
           <Link href="/purchase">Purchase</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
-
         </nav>
       </div>
     </header>
