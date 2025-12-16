@@ -5,44 +5,14 @@ export default function Home() {
     <>
       <Head>
         <title>Devil Trades</title>
-        <meta
-          name="description"
-          content="Devil Trades - Trading with Discipline"
-        />
+        <meta name="description" content="Devil Trades - Trading with Discipline" />
       </Head>
 
-     import Head from "next/head";
-
-export default function Courses() {
-  return (
-    <>
-      <Head>
-        <title>Courses | Devil Trades</title>
-      </Head>
-
-      <section className="coming-soon">
-        <img
-          src="/coming-soon.png"  /* 🔴 RENAME FILE IF NEEDED */
-          alt="Coming Soon"
-        />
+      <section className="home-hero">
+        <div className="hero-overlay">
+          {/* TEXT REMOVED AS REQUESTED */}
+        </div>
       </section>
-
-      <style jsx>{`
-        .coming-soon {
-          min-height: calc(100vh - 160px);
-          background: #000;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .coming-soon img {
-          max-width: 900px;
-          width: 90%;
-          height: auto;
-          object-fit: contain;
-        }
-      `}</style>
     </>
   );
 }
