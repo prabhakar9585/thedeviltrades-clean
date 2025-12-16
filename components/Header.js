@@ -1,24 +1,40 @@
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 export default function Header() {
   return (
-    <header className="header">
-      <div className="header-inner">
-        <div className="logo">
-          <img src="/logo.png" alt="Devil Trades Logo" />
-          <span>Devil Trades</span>
+    <header className={styles.header}>
+      <div className={styles.logo}>
+        <img src="/logo.png" alt="Devil Trades" />
+        <span>Devil Trades</span>
+      </div>
+
+      <nav className={styles.nav}>
+        <Link href="/">Home</Link>
+        <Link href="/courses">Courses</Link>
+
+        {/* Indicator Dropdown */}
+        <div className={styles.dropdown}>
+          <span className={styles.dropbtn}>Indicator ▾</span>
+
+          <div className={styles.dropdownContent}>
+            <div className={styles.subDropdown}>
+              <span>NIFTY 50 ▸</span>
+
+              <div className={styles.subContent}>
+                <Link href="/indicator/profits">Profit Trades</Link>
+                <Link href="/indicator/losses">Loss Trades</Link>
+                <Link href="/indicator/notrades">No Trade Days</Link>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <nav className="nav">
-  <a href="/">Home</a>
-  <a href="/courses">Courses</a>
-  <a href="/indicator">Indicator</a>
-  <a href="/accuracy">Accuracy</a>
-  <a href="/purchase">Purchase</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-</nav>
-      </div>
+        <Link href="/accuracy">Accuracy</Link>
+        <Link href="/purchase">Purchase</Link>
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
+      </nav>
     </header>
   );
 }
