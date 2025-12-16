@@ -11,25 +11,36 @@ export default function Home() {
         />
       </Head>
 
-      <section className="home-hero">
-        <div className="hero-overlay">
-          {/* NO WELCOME BACK TEXT (REMOVED AS YOU ASKED) */}
-        </div>
+     import Head from "next/head";
+
+export default function Courses() {
+  return (
+    <>
+      <Head>
+        <title>Courses | Devil Trades</title>
+      </Head>
+
+      <section className="coming-soon">
+        <img
+          src="/coming-soon.png"  /* 🔴 RENAME FILE IF NEEDED */
+          alt="Coming Soon"
+        />
       </section>
 
       <style jsx>{`
-        .home-hero {
+        .coming-soon {
           min-height: calc(100vh - 160px);
-          width: 100%;
-          background-image: url("/devil-wallpaper.jpg"); /* 🔴 CHANGE NAME IF NEEDED */
-          background-size: cover;
-          background-position: center top;
-          background-repeat: no-repeat;
+          background: #000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .hero-overlay {
-          min-height: calc(100vh - 160px);
-          background: rgba(0, 0, 0, 0.45);
+        .coming-soon img {
+          max-width: 900px;
+          width: 90%;
+          height: auto;
+          object-fit: contain;
         }
       `}</style>
     </>
