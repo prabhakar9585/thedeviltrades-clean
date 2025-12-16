@@ -1,25 +1,15 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
-    <main style={{ textAlign: "center", padding: "100px 20px" }}>
-      <h1>Learn Trading & Build Wealth</h1>
-      <p>We don’t promise profits. We teach discipline & psychology.</p>
+    <div className="home-hero">
+      <div className="overlay">
+        <h1 className="hero-title">WELCOME TO</h1>
+        <h2 className="hero-brand">DEVIL TRADES</h2>
 
-      <div style={{ marginTop: 30 }}>
-        <Link href="/indicator">
-          <button style={btnDark}>View Indicator</button>
-        </Link>
+        <p className="hero-sub">
+          We don’t promise profits. <br />
+          We teach discipline, psychology & real market strategy.
+        </p>
       </div>
-    </main>
+    </div>
   );
 }
-
-const btnDark = {
-  padding: "12px 22px",
-  background: "#000",
-  color: "#fff",
-  borderRadius: "6px",
-  border: "none",
-  cursor: "pointer"
-};
