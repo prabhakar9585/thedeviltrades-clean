@@ -1,8 +1,13 @@
-body {
+* {
   margin: 0;
-  background: #0b0b0b;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #050000;
   color: #f5f5f5;
-  font-family: Arial, sans-serif;
+  font-family: "Georgia", serif;
 }
 
 /* HEADER */
@@ -10,40 +15,57 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0b0b0b;
-  padding: 10px 40px;
-  border-bottom: 1px solid #1f1f1f;
+  padding: 15px 40px;
+  background: linear-gradient(180deg, #120000, #050000);
+  border-bottom: 1px solid #3a0000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .logo {
   height: 120px;
+  width: auto;
 }
 
 .brand {
-  margin-left: 15px;
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.nav a, .nav span {
-  margin-left: 20px;
-  color: #fff;
+.nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav a,
+.nav span {
+  color: #f5f5f5;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.nav a:hover, .nav span:hover {
-  color: #ff3c00;
+.nav a:hover,
+.nav span:hover {
+  color: #ff4d00;
 }
 
 /* DROPDOWN */
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-menu {
   display: none;
   position: absolute;
-  background: #111;
+  top: 28px;
+  left: 0;
+  background: #120000;
+  border: 1px solid #3a0000;
   padding: 10px;
 }
 
@@ -51,21 +73,9 @@ body {
   display: block;
 }
 
-.sub-dropdown {
-  position: relative;
-}
-
-.sub-menu {
-  display: none;
-  position: absolute;
-  left: 120px;
-  top: 0;
-  background: #111;
-  padding: 10px;
-}
-
-.sub-dropdown:hover .sub-menu {
+.dropdown-menu a {
   display: block;
+  padding: 5px 10px;
 }
 
 /* HOME */
@@ -74,23 +84,22 @@ body {
   padding: 120px 20px;
 }
 
-/* GALLERY */
-.gallery {
-  padding: 40px;
-  text-align: center;
+.home h1 {
+  font-size: 46px;
+  margin-bottom: 15px;
 }
 
-.gallery img {
-  max-width: 90%;
-  margin-bottom: 30px;
-  border: 1px solid #333;
+.subtitle {
+  color: #ccc;
+  font-size: 16px;
 }
 
 /* FOOTER */
 .footer {
+  background: #050000;
+  border-top: 1px solid #3a0000;
+  padding: 15px;
   text-align: center;
-  padding: 20px;
   font-size: 13px;
   color: #aaa;
-  border-top: 1px solid #1f1f1f;
 }

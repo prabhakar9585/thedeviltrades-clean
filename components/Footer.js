@@ -1,8 +1,11 @@
 export default function Footer() {
   return (
     <footer className="footer">
-      ⚠️ Disclaimer: Trading involves market risk. Past performance is not a
-      guarantee of future results. This website is for educational purposes only.
+      <p>
+        ⚠️ Disclaimer: Trading involves market risk. Past performance does not
+        guarantee future results. This content is strictly for educational
+        purposes only.
+      </p>
     </footer>
   );
 }

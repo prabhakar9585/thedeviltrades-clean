@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-left">
-        <img src="/logo.png" className="logo" />
+        <img src="/logo.png" className="logo" alt="Devil Trades" />
         <span className="brand">Devil Trades</span>
       </div>
 
@@ -15,14 +15,7 @@ export default function Header() {
         <div className="dropdown">
           <span>Indicator ▾</span>
           <div className="dropdown-menu">
-            <div className="sub-dropdown">
-              <span>NIFTY 50 ▸</span>
-              <div className="sub-menu">
-                <Link href="/indicator/profit">Profit Trades</Link>
-                <Link href="/indicator/loss">Loss Trades</Link>
-                <Link href="/indicator/notrade">No Trade Days</Link>
-              </div>
-            </div>
+            <Link href="/indicator">Nifty 50</Link>
           </div>
         </div>
 
