@@ -2,28 +2,22 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="header">
+    <header className="site-header">
       <div className="header-inner">
-        {/* LOGO */}
         <div className="logo">
           <img src="/logo.png" alt="Devil Trades" />
-          <span>Devil Trades</span>
         </div>
 
-        {/* NAV */}
         <nav className="nav">
           <Link href="/">Home</Link>
           <Link href="/courses">Courses</Link>
 
-          {/* INDICATOR DROPDOWN */}
           <div className="dropdown">
-            <span className="drop-btn">
-              Indicator ▾
-            </span>
+            <span>Indicator ▾</span>
 
-            <div className="dropdown-content">
+            <div className="dropdown-menu">
               <div className="sub-dropdown">
-                <span className="sub-btn">NIFTY 50 ▶</span>
+                <span>NIFTY 50 ▸</span>
 
                 <div className="sub-menu">
                   <Link href="/indicator/profits">Profit Trades</Link>
