@@ -186,3 +186,40 @@ nav a, .dropbtn {
   line-height: 1.6;
   color: #f2f2f2;
 }
+/* ===== HEADER THEME FIX ===== */
+header {
+  background: rgba(20, 10, 5, 0.95); /* dark devil tone */
+  border-bottom: 1px solid #2a120a;
+}
+
+.logo {
+  height: 120px;   /* 🔥 LOGO SIZE FIX */
+  width: auto;
+}
+
+/* Menu text */
+nav a {
+  color: #f5e6d3;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #ff4d00;
+}
+/* ===== FOOTER ===== */
+.footer {
+  background: #0f0704;
+  color: #d6c1b3;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #2a120a;
+}
+
+.footer strong {
+  color: #ff4d00;
+}
+
+.footer p {
+  margin: 8px 0;
+}

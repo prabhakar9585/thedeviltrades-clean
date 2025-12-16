@@ -5,7 +5,11 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src="/logo.png" alt="Devil Trades" />
+        <img
+  src="/logo.png"
+  alt="Devil Trades Logo"
+  className="logo"
+/>
         <span>Devil Trades</span>
       </div>
 
