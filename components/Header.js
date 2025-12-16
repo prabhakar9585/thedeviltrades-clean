@@ -1,30 +1,26 @@
 import Link from "next/link";
-import styles from "./Header.module.css";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src="/logo.png" alt="Devil Trades" />
-        <span>Devil Trades</span>
+    <header className="header">
+      <div className="header-left">
+        <img src="/logo.png" className="logo" />
+        <span className="brand">Devil Trades</span>
       </div>
 
-      <nav className={styles.nav}>
+      <nav className="nav">
         <Link href="/">Home</Link>
         <Link href="/courses">Courses</Link>
 
-        {/* Indicator Dropdown */}
-        <div className={styles.dropdown}>
-          <span className={styles.dropbtn}>Indicator ▾</span>
-
-          <div className={styles.dropdownContent}>
-            <div className={styles.subDropdown}>
+        <div className="dropdown">
+          <span>Indicator ▾</span>
+          <div className="dropdown-menu">
+            <div className="sub-dropdown">
               <span>NIFTY 50 ▸</span>
-
-              <div className={styles.subContent}>
-                <Link href="/indicator/profits">Profit Trades</Link>
-                <Link href="/indicator/losses">Loss Trades</Link>
-                <Link href="/indicator/notrades">No Trade Days</Link>
+              <div className="sub-menu">
+                <Link href="/indicator/profit">Profit Trades</Link>
+                <Link href="/indicator/loss">Loss Trades</Link>
+                <Link href="/indicator/notrade">No Trade Days</Link>
               </div>
             </div>
           </div>
