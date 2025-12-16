@@ -10,7 +10,7 @@ export default function Home() {
 
       <section className="home-hero">
         <div className="hero-overlay">
-          <h1 className="hero-title">DEVIL TRADES</h1>
+          <h1 className="hero-title"></h1>
           <p className="hero-subtitle">
             We don’t promise profits.<br />
             We teach discipline, psychology & real market strategy.

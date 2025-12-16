@@ -103,7 +103,7 @@ body {
 /* ================= HOME HERO ================= */
 /* HOME HERO FIX */
 .home-hero {
-  height: calc(100vh - 160px); /* header safe */
+  height: calc(80vh - 140px); /* header safe */
   background-image: url("/devil-bg.jpg");
   background-size: cover;
   background-position: center;
@@ -112,8 +112,8 @@ body {
 
 /* DARK OVERLAY */
 .hero-overlay {
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 80%;
   background: rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
