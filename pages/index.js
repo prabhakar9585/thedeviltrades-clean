@@ -11,7 +11,7 @@ export default function Home() {
         />
       </Head>
 
-      {/* HOME HERO SECTION */}
+      {/* HOME HERO */}
       <section className="home-hero">
         <div className="overlay">
           <div className="bottom-text">
@@ -26,11 +26,12 @@ export default function Home() {
 
       <style jsx>{`
         .home-hero {
-          min-height: calc(100vh - 160px); /* header + footer safe */
+          min-height: calc(100vh - 160px); /* header height handled */
           width: 100%;
-          background-image: url("/devil-bg.jpg"); /* YOUR FULL IMAGE */
+          margin-top: 160px; /* 🔥 THIS IS THE KEY FIX */
+          background-image: url("/devil-bg.jpg");
           background-size: cover;
-          background-position: center center; /* IMPORTANT FIX */
+          background-position: top center; /* 🔥 SHOW IMAGE HEADER TEXT */
           background-repeat: no-repeat;
           position: relative;
         }
@@ -38,15 +39,14 @@ export default function Home() {
         .overlay {
           width: 100%;
           height: 100%;
-          position: relative;
           background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.1),
             rgba(0, 0, 0, 0.55)
           );
+          position: relative;
         }
 
-        /* Bottom Center Text */
         .bottom-text {
           position: absolute;
           bottom: 60px;
@@ -64,6 +64,10 @@ export default function Home() {
         }
 
         @media (max-width: 768px) {
+          .home-hero {
+            margin-top: 140px;
+          }
+
           .bottom-text {
             bottom: 40px;
           }
