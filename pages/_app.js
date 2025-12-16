@@ -1,5 +1,5 @@
-import Link from "next/link";
 import "../styles/globals.css";
+import Link from "next/link";
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -14,11 +14,20 @@ export default function MyApp({ Component, pageProps }) {
           <Link href="/">Home</Link>
           <Link href="/courses">Courses</Link>
 
-          {/* INDICATOR DROPDOWN */}
+          {/* INDICATOR MENU */}
           <div className="dropdown">
-            <span className="dropbtn">Indicator ▾</span>
+            <span className="dropbtn">Indicator ▸</span>
+
             <div className="dropdown-content">
-              <Link href="/indicator">NIFTY 50</Link>
+              <div className="sub-dropdown">
+                <span>NIFTY 50 ▸</span>
+
+                <div className="sub-dropdown-content">
+                  <Link href="/indicator/profit">Profit Trades</Link>
+                  <Link href="/indicator/loss">Loss Trades</Link>
+                  <Link href="/indicator/notrade">No Trade Days</Link>
+                </div>
+              </div>
             </div>
           </div>
 
