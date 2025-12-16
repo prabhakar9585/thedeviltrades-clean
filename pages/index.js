@@ -10,7 +10,11 @@ export default function Home() {
 
       <section className="home-hero">
         <div className="hero-overlay">
-          {/* TEXT REMOVED AS REQUESTED */}
+          <h1 className="hero-title">DEVIL TRADES</h1>
+          <p className="hero-subtitle">
+            We don’t promise profits.<br />
+            We teach discipline, psychology & real market strategy.
+          </p>
         </div>
       </section>
     </>
