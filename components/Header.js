@@ -2,44 +2,47 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
-  const [showCourses, setShowCourses] = useState(false);
+  const [showIndicator, setShowIndicator] = useState(false);
 
   return (
     <header className="header">
       <div className="header-inner">
+
         {/* LOGO */}
         <div className="logo">
           <img src="/logo.png" alt="Devil Trades" />
-          <span>Devil Trades</span>
+          <span className="brand-text">Devil Trades</span>
         </div>
 
         {/* NAV */}
         <nav className="nav">
+
           <Link href="/">Home</Link>
 
-          {/* COURSES HOVER */}
+          <Link href="/courses">Courses</Link>
+
+          {/* INDICATOR */}
           <div
             className="nav-item"
-            onMouseEnter={() => setShowCourses(true)}
-            onMouseLeave={() => setShowCourses(false)}
+            onMouseEnter={() => setShowIndicator(true)}
+            onMouseLeave={() => setShowIndicator(false)}
           >
-            <span className="nav-link">Courses</span>
+            <Link href="/indicator" className="nav-link">
+              Indicator ▾
+            </Link>
 
-            {showCourses && (
-              <div className="courses-dropdown">
-                <img
-                  src="/coming-soon.jpg"
-                  alt="Courses Coming Soon"
-                />
+            {showIndicator && (
+              <div className="indicator-dropdown">
+                <Link href="/indicator">NIFTY 50</Link>
               </div>
             )}
           </div>
 
-          <Link href="/#indicator">Indicator ▾</Link>
           <Link href="/accuracy">Accuracy</Link>
           <Link href="/purchase">Purchase</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+
         </nav>
       </div>
     </header>
