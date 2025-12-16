@@ -1,12 +1,10 @@
-export default function LossTrades() {
-  const images = Array.from({ length: 50 }, (_, i) => `/losses/l${i + 1}.png`);
+import Gallery from "../../components/Gallery";
 
+export default function LossTrades() {
   return (
-    <div className="gallery">
-      <h1>Loss Trades</h1>
-      {images.map((src, i) => (
-        <img key={i} src={src} />
-      ))}
+    <div className="page">
+      <h1>NIFTY 50 – Loss Trades</h1>
+      <Gallery folder="losses" prefix="l" />
     </div>
   );
 }

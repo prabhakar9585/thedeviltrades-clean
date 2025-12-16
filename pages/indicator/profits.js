@@ -1,12 +1,10 @@
-export default function ProfitTrades() {
-  const images = Array.from({ length: 50 }, (_, i) => `/profits/p${i + 1}.png`);
+import Gallery from "../../components/Gallery";
 
+export default function ProfitTrades() {
   return (
-    <div className="gallery">
-      <h1>Profit Trades</h1>
-      {images.map((src, i) => (
-        <img key={i} src={src} />
-      ))}
+    <div className="page">
+      <h1>NIFTY 50 – Profit Trades</h1>
+      <Gallery folder="profits" prefix="p" />
     </div>
   );
 }

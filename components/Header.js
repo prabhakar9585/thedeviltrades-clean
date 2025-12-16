@@ -9,21 +9,14 @@ export default function Header() {
       </div>
 
       <nav className="nav">
-        <Link href="/">Home</Link>
-        <Link href="/courses">Courses</Link>
-
-        <div className="dropdown">
-          <span>Indicator ▾</span>
-          <div className="dropdown-menu">
-            <Link href="/indicator">Nifty 50</Link>
-          </div>
-        </div>
-
-        <Link href="/accuracy">Accuracy</Link>
-        <Link href="/purchase">Purchase</Link>
-        <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
-      </nav>
+  <a href="/">Home</a>
+  <a href="/courses">Courses</a>
+  <a href="/indicator">Indicator</a>
+  <a href="/accuracy">Accuracy</a>
+  <a href="/purchase">Purchase</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</nav>
     </header>
   );
 }
