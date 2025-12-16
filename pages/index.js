@@ -1,11 +1,15 @@
 export default function Home() {
   return (
-    <main className="home">
-      <h1>Learn Trading & Build Wealth</h1>
+    <div className="home-hero">
+      <div className="overlay">
+        <h1 className="hero-title">WELCOME TO</h1>
+        <h2 className="hero-brand">DEVIL TRADES</h2>
 
-      <p className="subtitle">
-        We don’t promise profits. We teach discipline & psychology.
-      </p>
-    </main>
+        <p className="hero-sub">
+          We don’t promise profits. <br />
+          We teach discipline, psychology & real market strategy.
+        </p>
+      </div>
+    </div>
   );
 }
