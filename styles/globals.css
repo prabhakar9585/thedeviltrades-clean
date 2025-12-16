@@ -14,7 +14,7 @@
 }
 
 .logo img {
-  width: 120px;
+  width: 240px;
 }
 
 nav {
@@ -222,4 +222,64 @@ nav a:hover {
 
 .footer p {
   margin: 8px 0;
+}
+/* HEADER */
+.header {
+  background: #f7f1e6;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 60px; /* we will upgrade to 120px later */
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav a,
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* COURSES DROPDOWN */
+.nav-item {
+  position: relative;
+}
+
+.courses-dropdown {
+  position: absolute;
+  top: 55px;
+  left: -400px;
+  width: 900px;
+  background: #000;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.courses-dropdown img {
+  width: 100%;
+  border-radius: 6px;
 }
