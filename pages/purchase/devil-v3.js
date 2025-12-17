@@ -1,32 +1,57 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function DevilV3() {
+  const [name, setName] = useState("");
+  const [tvId, setTvId] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [enabled, setEnabled] = useState(false);
 
+  // Enable Buy Now only if ALL conditions met
   useEffect(() => {
-    // Load Razorpay script
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+    if (
+      name.trim() &&
+      tvId.trim() &&
+      mobile.length === 10 &&
+      agree
+    ) {
+      setEnabled(true);
+    } else {
+      setEnabled(false);
+    }
+  }, [name, tvId, mobile, agree]);
 
-  const handlePayment = () => {
+  const handleBuyNow = async () => {
+    if (!enabled) return;
+
+    const res = await fetch("/api/razorpay/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: 5000 }),
+    });
+
+    const data = await res.json();
+
     const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY, // test key
-      amount: 500000, // ₹5000
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+      amount: data.amount,
       currency: "INR",
-      name: "DEVIL TRADES",
-      description: "THE DEVIL V3 - Monthly Subscription",
+      name: "Devil Trades",
+      description: "THE DEVIL V3",
+      order_id: data.id,
       handler: function (response) {
-        alert("Payment Successful ✅\nPayment ID: " + response.razorpay_payment_id);
+        alert("Payment Successful!");
+        console.log(response);
       },
-      theme: {
-        color: "#ff3c00",
+      prefill: {
+        name,
+        contact: mobile,
       },
+      theme: { color: "#ff3c00" },
     };
 
-    const razorpay = new window.Razorpay(options);
-    razorpay.open();
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (
@@ -34,26 +59,44 @@ export default function DevilV3() {
       <div className="purchase-card">
         <h1>THE DEVIL V3</h1>
 
-        <label>Name</label>
-        <input type="text" placeholder="Your Name" />
+        <input
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-        <label>TradingView ID</label>
-        <input type="text" placeholder="TradingView Username" />
+        <input
+          placeholder="TradingView ID"
+          value={tvId}
+          onChange={(e) => setTvId(e.target.value)}
+        />
 
-        <label>Mobile Number</label>
-        <input type="tel" placeholder="Mobile Number" />
+        <input
+          placeholder="Mobile Number"
+          value={mobile}
+          maxLength="10"
+          onChange={(e) => setMobile(e.target.value)}
+        />
 
         <p className="price">Price per Month: ₹5000 INR</p>
 
         <div className="terms">
-          <input type="checkbox" checked readOnly />
+          <input
+            type="checkbox"
+            checked={agree}
+            onChange={(e) => setAgree(e.target.checked)}
+          />
           <span>
-            I agree to the <a href="/terms">Terms & Conditions</a>
+            I agree to the{" "}
+            <a href="/terms" target="_blank">Terms & Conditions</a>
           </span>
         </div>
 
-        {/* BUY NOW ALWAYS ENABLED */}
-        <button className="buy-btn" onClick={handlePayment}>
+        <button
+          className={`buy-btn ${enabled ? "active" : ""}`}
+          disabled={!enabled}
+          onClick={handleBuyNow}
+        >
           BUY NOW
         </button>
       </div>
