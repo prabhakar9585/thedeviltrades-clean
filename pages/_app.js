@@ -11,3 +11,4 @@ export default function MyApp({ Component, pageProps }) {
     </>
   );
 }
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>

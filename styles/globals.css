@@ -250,3 +250,18 @@ button:disabled {
   background: #444;
   cursor: not-allowed;
 }
+.buy-btn {
+  width: 100%;
+  padding: 14px;
+  background: #444;
+  color: #999;
+  border: none;
+  cursor: not-allowed;
+  font-size: 16px;
+}
+
+.buy-btn.active {
+  background: #ff4d00;
+  color: #fff;
+  cursor: pointer;
+}
