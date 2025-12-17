@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        {/* LOGO + BRAND */}
+        {/* LOGO */}
         <div className="logo-wrap">
           <img src="/logo.png" alt="Devil Trades" />
           <span className="brand-text">DEVIL TRADES</span>
@@ -15,6 +15,7 @@ export default function Header() {
           <Link href="/">Home</Link>
           <Link href="/courses">Courses</Link>
 
+          {/* INDICATOR SLIDE */}
           <div className="dropdown">
             <span>Indicator ▾</span>
             <div className="dropdown-menu">
@@ -29,8 +30,24 @@ export default function Header() {
             </div>
           </div>
 
+          {/* PURCHASE SLIDE (NEW) */}
+          <div className="dropdown">
+            <span>Purchase ▾</span>
+            <div className="dropdown-menu">
+              <div className="sub-dropdown">
+                <span>Indicator ▸</span>
+                <div className="sub-menu">
+                  <Link href="/purchase/devil-v3">THE DEVIL V3</Link>
+                </div>
+              </div>
+
+              <div className="dropdown-item disabled">
+                Trading Bot (Coming Soon)
+              </div>
+            </div>
+          </div>
+
           <Link href="/accuracy">Accuracy</Link>
-          <Link href="/purchase">Purchase</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </nav>

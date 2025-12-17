@@ -184,3 +184,9 @@ body {
   color: #000;
   white-space: nowrap;
 }
+/* Disabled item */
+.dropdown-item.disabled {
+  padding: 6px 10px;
+  color: #777;
+  cursor: not-allowed;
+}
