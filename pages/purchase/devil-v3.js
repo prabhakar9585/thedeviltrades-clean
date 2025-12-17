@@ -1,71 +1,66 @@
-import { useState } from "react";
 import Head from "next/head";
 
-export default function DevilV3() {
-  const [name, setName] = useState("");
-  const [tvId, setTvId] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [agree, setAgree] = useState(false);
-
-  const isValid =
-    name.trim() !== "" &&
-    tvId.trim() !== "" &&
-    mobile.trim() !== "" &&
-    agree;
-
+export default function DevilV3Purchase() {
   return (
     <>
       <Head>
         <title>THE DEVIL V3 | Purchase</title>
       </Head>
 
-      <section className="form-page">
-        <div className="form-box">
-          <h1>THE DEVIL V3</h1>
+      <section className="purchase-page">
+        <div className="purchase-overlay">
+          <div className="purchase-card">
+            <h1>THE DEVIL V3</h1>
 
-          <label>Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} />
+            <label>Name</label>
+            <input type="text" placeholder="Enter your name" />
 
-          <label>TradingView ID</label>
-          <input value={tvId} onChange={(e) => setTvId(e.target.value)} />
+            <label>TradingView ID</label>
+            <input type="text" placeholder="TradingView username" />
 
-          <label>Mobile Number</label>
-          <input value={mobile} onChange={(e) => setMobile(e.target.value)} />
+            <label>Mobile Number</label>
+            <input type="tel" placeholder="Enter mobile number" />
 
-          <div className="price">
-            Price per Month: <strong>₹5000 INR</strong>
+            <p className="price">Price per Month: ₹5000 INR</p>
+
+            <div className="terms">
+              <input type="checkbox" id="terms" />
+              <label htmlFor="terms">
+                I agree to the{" "}
+                <a href="/terms" target="_blank">
+                  Terms & Conditions
+                </a>
+              </label>
+            </div>
+
+            <button disabled>BUY NOW</button>
           </div>
-
-          <div className="terms">
-  <input
-    type="checkbox"
-    checked={agree}
-    onChange={() => setAgree(!agree)}
-  />
-
-  <span>
-    I agree to the{" "}
-    <a href="/terms" target="_blank">
-      Terms & Conditions
-    </a>
-  </span>
-</div>
-
-          <button disabled={!isValid}>BUY NOW</button>
         </div>
       </section>
 
       <style jsx>{`
-        .form-page {
+        .purchase-page {
           min-height: calc(100vh - 160px);
-          background: #000;
+          background: url("/purchase-bg.jpg") center center / cover no-repeat;
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
         }
 
-        .form-box {
-          width: 400px;
+        .purchase-overlay {
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 40px 20px;
+        }
+
+        .purchase-card {
+          width: 100%;
+          max-width: 420px;
+          background: rgba(0, 0, 0, 0.85);
           border: 1px solid #333;
           padding: 30px;
           color: #fff;
@@ -74,7 +69,7 @@ export default function DevilV3() {
         h1 {
           text-align: center;
           color: #ff3c00;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
         }
 
         label {
@@ -93,29 +88,31 @@ export default function DevilV3() {
         }
 
         .price {
-          margin: 20px 0;
+          margin: 18px 0;
           color: #ff3c00;
+          font-weight: bold;
+          text-align: center;
         }
 
         .terms {
           display: flex;
           align-items: center;
-          gap: 10px;
-          font-size: 14px;
+          gap: 8px;
+          font-size: 13px;
           margin-bottom: 20px;
+        }
+
+        .terms a {
+          color: #ff3c00;
+          text-decoration: underline;
         }
 
         button {
           width: 100%;
           padding: 12px;
-          background: #ff3c00;
-          border: none;
-          font-weight: bold;
-          cursor: pointer;
-        }
-
-        button:disabled {
           background: #555;
+          color: #999;
+          border: none;
           cursor: not-allowed;
         }
       `}</style>

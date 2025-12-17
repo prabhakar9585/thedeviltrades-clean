@@ -190,3 +190,7 @@ body {
   color: #777;
   cursor: not-allowed;
 }
+.terms a {
+  color: #ff3c00;
+  text-decoration: underline;
+}
