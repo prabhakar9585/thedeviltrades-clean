@@ -37,13 +37,19 @@ export default function DevilV3() {
           </div>
 
           <div className="terms">
-            <input
-              type="checkbox"
-              checked={agree}
-              onChange={() => setAgree(!agree)}
-            />
-            <span>I agree to the Terms & Conditions</span>
-          </div>
+  <input
+    type="checkbox"
+    checked={agree}
+    onChange={() => setAgree(!agree)}
+  />
+
+  <span>
+    I agree to the{" "}
+    <a href="/terms" target="_blank">
+      Terms & Conditions
+    </a>
+  </span>
+</div>
 
           <button disabled={!isValid}>BUY NOW</button>
         </div>
