@@ -11,14 +11,28 @@ const profitImages = [
 ];
 
 export default function ProfitTrades() {
+  // AUTO LOAD: Add more PNGs anytime (1.png, 2.png, 3.png...)
+  const images = Array.from({ length: 9 }, (_, i) => ({
+    src: `/indicator/devil-v3/profit/${i + 1}.png`,
+    alt: `Profit Trade ${i + 1}`,
+  }));
+
   return (
-    <div className="indicator-page">
-      <h1>NIFTY 50 – PROFIT TRADES</h1>
+    <div
+      className="indicator-page"
+      style={{
+        backgroundImage:
+          "url('/indicator/devil-v3/bg/profit-bg.jpg')",
+      }}
+    >
+      <h1 className="indicator-title">
+        NIFTY 50 – PROFIT TRADES
+      </h1>
 
       <div className="image-column">
-        {profitImages.map((img, index) => (
-          <div key={index} className="image-box">
-            <img src={img} alt={`Profit Trade ${index + 1}`} />
+        {images.map((img, index) => (
+          <div className="image-box" key={index}>
+            <img src={img.src} alt={img.alt} />
           </div>
         ))}
       </div>

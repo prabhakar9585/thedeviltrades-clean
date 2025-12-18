@@ -243,3 +243,37 @@ body {
   border-radius: 6px;
   border: 1px solid #222;
 }
+/* ===== Indicator Backgrounds ===== */
+
+.indicator-page {
+  min-height: calc(100vh - 160px);
+  padding: 60px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay for readability */
+.indicator-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: -1;
+}
+
+/* Image column */
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.image-box img {
+  max-width: 900px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
