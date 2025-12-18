@@ -12,38 +12,61 @@ export default function Accuracy() {
       </Head>
 
       <section className="accuracy-page">
-        {/* IMAGE SECTION */}
-        <div className="accuracy-image-wrap">
-          <img
-            src="/accuracy-report.png"
-            alt="Devil Trades Strategy Performance"
-          />
-        </div>
+        {/* CONTENT WRAPPER */}
+        <div className="accuracy-content">
+          {/* IMAGE SECTION */}
+          <div className="accuracy-image-wrap">
+            <img
+              src="/accuracy-report.png"
+              alt="Devil Trades Strategy Performance"
+            />
+          </div>
 
-        {/* DATE RANGE */}
-        <div className="accuracy-dates">
-          <p>
-            <strong>Performance Data:</strong>
-            <br />
-            28/04/2025 – 14/12/2025
-          </p>
-        </div>
+          {/* DATE RANGE */}
+          <div className="accuracy-dates">
+            <p>
+              <strong>Performance Data:</strong>
+              <br />
+              28/04/2025 – 14/12/2025
+            </p>
+          </div>
 
-        {/* FOOTER NOTE */}
-        <div className="accuracy-note">
-          <p>
-            Note: Performance data is updated every month on the last trading
-            day.
-          </p>
+          {/* FOOTER NOTE */}
+          <div className="accuracy-note">
+            <p>
+              Note: Performance data is updated every month on the last trading
+              day.
+            </p>
+          </div>
         </div>
       </section>
 
       <style jsx>{`
+        /* PAGE WITH BACKGROUND */
         .accuracy-page {
-          background: #000;
-          color: #fff;
           min-height: calc(100vh - 160px);
-          padding: 60px 20px;
+          padding: 80px 20px;
+          background-image: url("/accuracy-bg.jpg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative;
+          color: #fff;
+        }
+
+        /* DARK OVERLAY */
+        .accuracy-page::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.75);
+          z-index: 0;
+        }
+
+        /* CONTENT ABOVE OVERLAY */
+        .accuracy-content {
+          position: relative;
+          z-index: 1;
           text-align: center;
         }
 
@@ -56,7 +79,7 @@ export default function Accuracy() {
           width: 100%;
           height: auto;
           border-radius: 6px;
-          box-shadow: 0 0 25px rgba(255, 77, 0, 0.25);
+          box-shadow: 0 0 25px rgba(255, 77, 0, 0.35);
         }
 
         .accuracy-dates {
@@ -68,11 +91,15 @@ export default function Accuracy() {
 
         .accuracy-note {
           font-size: 14px;
-          color: #bbb;
+          color: #ccc;
           margin-top: 40px;
         }
 
         @media (max-width: 768px) {
+          .accuracy-page {
+            padding: 60px 15px;
+          }
+
           .accuracy-dates {
             font-size: 16px;
           }
