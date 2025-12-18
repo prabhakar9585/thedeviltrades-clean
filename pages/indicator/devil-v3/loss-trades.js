@@ -11,9 +11,11 @@ export default function LossTrades() {
     <div className="indicator-page">
       <h1>NIFTY 50 – LOSS TRADES</h1>
 
-      <div className="image-grid">
+      <div className="image-column">
         {lossImages.map((img, index) => (
-          <img key={index} src={img} alt={`Loss Trade ${index + 1}`} />
+          <div key={index} className="image-box">
+            <img src={img} alt={`Loss Trade ${index + 1}`} />
+          </div>
         ))}
       </div>
     </div>

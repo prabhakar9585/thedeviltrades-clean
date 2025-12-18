@@ -15,9 +15,11 @@ export default function ProfitTrades() {
     <div className="indicator-page">
       <h1>NIFTY 50 – PROFIT TRADES</h1>
 
-      <div className="image-grid">
+      <div className="image-column">
         {profitImages.map((img, index) => (
-          <img key={index} src={img} alt={`Profit Trade ${index + 1}`} />
+          <div key={index} className="image-box">
+            <img src={img} alt={`Profit Trade ${index + 1}`} />
+          </div>
         ))}
       </div>
     </div>

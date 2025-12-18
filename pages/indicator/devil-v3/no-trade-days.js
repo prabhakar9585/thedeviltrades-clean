@@ -7,9 +7,11 @@ export default function NoTradeDays() {
     <div className="indicator-page">
       <h1>NIFTY 50 – NO TRADE DAYS</h1>
 
-      <div className="image-grid">
+      <div className="image-column">
         {noTradeImages.map((img, index) => (
-          <img key={index} src={img} alt={`No Trade Day ${index + 1}`} />
+          <div key={index} className="image-box">
+            <img src={img} alt={`No Trade Day ${index + 1}`} />
+          </div>
         ))}
       </div>
     </div>
