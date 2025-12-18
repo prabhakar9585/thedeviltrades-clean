@@ -91,46 +91,52 @@ body {
 }
 
 /* ================= HOME HERO ================= */
-/* ================= HOME HERO – FULL SCREEN FIX ================= */
+/* ================= HOME HERO (FIXED) ================= */
 
-/* Header height = 160px */
+/* Header height = ~160px (logo + padding) */
+:root {
+  --header-height: 160px;
+}
+
 .home-hero {
-  height: calc(100vh - 160px);   /* 🔥 KEY FIX */
+  height: calc(100vh - var(--header-height));
   width: 100%;
   background-image: url("/devil-bg.jpg");
-  background-size: cover;        /* FULL SCREEN */
-  background-position: center center;
+  background-size: cover;
+  background-position: center center; /* IMPORTANT */
   background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
 }
 
-/* soft readability overlay (does NOT hide image) */
-.hero-overlay {
-  height: 100%;
-  width: 100%;
+/* Dark overlay (optional but clean) */
+.home-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.55)
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.7)
   );
-  position: relative;
 }
 
-/* bottom-centered text */
-.hero-footer-text {
+/* Bottom centered text */
+.home-bottom-text {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  max-width: 800px;
+  z-index: 2;
+  max-width: 900px;
   padding: 0 20px;
 }
 
-.hero-footer-text p {
-  color: #ffffff;
+.home-bottom-text p {
   font-size: 18px;
   line-height: 1.6;
+  color: #ffffff;
 }
 
 /* ================= PURCHASE ================= */

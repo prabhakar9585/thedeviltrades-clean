@@ -7,19 +7,18 @@ export default function Home() {
         <title>Devil Trades</title>
         <meta
           name="description"
-          content="Devil Trades - Trading with Discipline"
+          content="Devil Trades - Discipline, psychology & real market strategy"
         />
       </Head>
 
+      {/* HOME HERO SECTION */}
       <section className="home-hero">
-        <div className="hero-overlay">
-          <div className="hero-footer-text">
-            <p>
-              We don’t promise profits.
-              <br />
-              We teach discipline, psychology & real market strategy.
-            </p>
-          </div>
+        {/* Bottom Center Text */}
+        <div className="home-bottom-text">
+          <p>We don’t promise profits.</p>
+          <p>
+            We teach discipline, psychology & real market strategy.
+          </p>
         </div>
       </section>
     </>
