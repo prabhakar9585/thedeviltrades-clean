@@ -220,3 +220,26 @@ body {
   display: block;
   border: 2px solid #333;
 }
+.indicator-page {
+  padding: 200px 40px 60px;
+  background: #000;
+  min-height: 100vh;
+}
+
+.indicator-page h1 {
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #222;
+}
