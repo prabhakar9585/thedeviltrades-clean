@@ -137,3 +137,22 @@ body {
   color: #aaa;
   font-size: 13px;
 }
+.trade-page {
+  padding-top: 180px; /* header space */
+  background: #000;
+  text-align: center;
+}
+
+.trade-title {
+  color: #ff3c00;
+  margin-bottom: 30px;
+}
+
+.trade-images img {
+  width: 90%;
+  max-width: 900px;
+  margin-bottom: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
