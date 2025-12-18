@@ -1,16 +1,13 @@
-import ImageSlider from "../../../components/ImageSlider";
-
 export default function ProfitTrades() {
-  const images = [
-    "/indicator/devil-v3/profit/1.jpg",
-    "/indicator/devil-v3/profit/2.jpg",
-    "/indicator/devil-v3/profit/3.jpg",
-  ];
-
   return (
     <div className="indicator-page">
-      <h1>NIFTY 50</h1>
-      <ImageSlider images={images} />
+      <h1 className="indicator-title">NIFTY 50</h1>
+
+      <div className="indicator-gallery">
+        <img src="/indicator/profit/trade1.png" alt="Profit Trade 1" />
+        <img src="/indicator/profit/trade2.png" alt="Profit Trade 2" />
+        <img src="/indicator/profit/trade3.png" alt="Profit Trade 3" />
+      </div>
     </div>
   );
 }
