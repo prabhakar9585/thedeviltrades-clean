@@ -1,7 +1,9 @@
 export default function Courses() {
   return (
-    <div className="coming-soon">
-      <img src="/coming-soon.png" alt="Coming Soon" />
-    </div>
+    <section className="courses-hero">
+      <div className="courses-overlay">
+        {/* Optional text later */}
+      </div>
+    </section>
   );
 }
