@@ -6,5 +6,5 @@ export default function Footer() {
         Educational purpose only.
       </p>
     </footer>
-  );
+  )
 }
