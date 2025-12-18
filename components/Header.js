@@ -10,12 +10,12 @@ export default function Header() {
           <span className="brand-text">DEVIL TRADES</span>
         </div>
 
-        {/* NAVIGATION */}
+        {/* NAV */}
         <nav className="nav">
           <Link href="/">Home</Link>
           <Link href="/courses">Courses</Link>
 
-          {/* ===== INDICATOR DROPDOWN ===== */}
+          {/* INDICATOR DROPDOWN */}
           <div className="dropdown">
             <span className="dropdown-title">Indicator ▾</span>
 

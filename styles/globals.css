@@ -56,40 +56,72 @@ body {
 }
 
 /* DROPDOWN */
-/* ===== INDICATOR DROPDOWN FIX ===== */
+/* ===== DROPDOWN FIX ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-title {
+  cursor: pointer;
+  white-space: nowrap;
+}
 
 .dropdown-menu {
-  min-width: 220px;              /* prevent narrow box */
+  position: absolute;
+  top: 100%;
+  left: 0;
   background: #111;
   padding: 6px 0;
+  min-width: 200px;
+  display: none;
+  z-index: 9999;
 }
 
-.dropdown-menu a,
-.dropdown-menu span {
-  white-space: nowrap;           /* 🔥 IMPORTANT */
+.dropdown:hover .dropdown-menu {
   display: block;
-  padding: 10px 16px;
-  color: #fff;
-  font-size: 14px;
 }
 
-/* Sub dropdown (THE DEVIL V.3) */
+/* FIRST LEVEL */
 .sub-dropdown {
   position: relative;
 }
 
-.sub-dropdown > span {
-  white-space: nowrap;           /* 🔥 IMPORTANT */
+.sub-title {
+  display: block;
+  padding: 10px 16px;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-/* Sub menu (Profit / Loss / No Trade) */
+.sub-title:hover {
+  background: #ff4d00;
+}
+
+/* SECOND LEVEL */
 .sub-menu {
-  min-width: 220px;              /* 🔥 SAME WIDTH */
+  position: absolute;
+  top: 0;
+  left: 100%;
   background: #111;
+  min-width: 200px;
+  display: none;
+}
+
+.sub-dropdown:hover .sub-menu {
+  display: block;
 }
 
 .sub-menu a {
-  white-space: nowrap;           /* 🔥 NO WRAP */
+  display: block;
+  padding: 10px 16px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sub-menu a:hover {
+  background: #ff4d00;
 }
 
 /* HOME */
