@@ -91,30 +91,35 @@ body {
 }
 
 /* ================= HOME HERO ================= */
-/* ================= HOME HERO (FINAL FIX) ================= */
+/* ================= HOME HERO – FULL SCREEN FIX ================= */
 
+/* Header height = 160px */
 .home-hero {
-  min-height: 100vh;
+  height: calc(100vh - 160px);   /* 🔥 KEY FIX */
   width: 100%;
   background-image: url("/devil-bg.jpg");
-  background-size: contain;      /* 🔥 FULL IMAGE – NO CUT */
-  background-position: center top;
+  background-size: cover;        /* FULL SCREEN */
+  background-position: center center;
   background-repeat: no-repeat;
-  background-color: #000;        /* fill empty space if image is tall */
   position: relative;
 }
 
-/* overlay without hiding image */
+/* soft readability overlay (does NOT hide image) */
 .hero-overlay {
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.55)
+  );
   position: relative;
 }
 
-/* bottom-center text */
+/* bottom-centered text */
 .hero-footer-text {
   position: absolute;
-  bottom: 40px;                  /* footer-like position */
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
