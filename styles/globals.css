@@ -5,27 +5,40 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: serif;
   background: #000;
   color: #fff;
+  overflow-x: hidden;
 }
 
 /* ================= HEADER ================= */
+:root {
+  --header-height: 160px;
+}
+
 .site-header {
   background: #f7efdf;
   padding: 12px 40px;
-  position: fixed;          /* IMPORTANT */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;            /* ALWAYS ON TOP */
+  height: var(--header-height);
+  z-index: 9999;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
 
 .logo-wrap {
@@ -90,38 +103,37 @@ body {
   background: #ff4d00;
 }
 
-/* ================= HOME HERO ================= */
-/* ================= HOME HERO (FIXED) ================= */
-
-/* Header height = ~160px (logo + padding) */
-:root {
-  --header-height: 160px;
+/* ================= PAGE OFFSET (IMPORTANT) ================= */
+.page-wrapper {
+  padding-top: var(--header-height);
 }
 
+/* ================= HOME HERO ================= */
 .home-hero {
-  height: calc(100vh - var(--header-height));
+  position: relative;
   width: 100%;
+  height: calc(100vh - var(--header-height));
   background-image: url("/devil-bg.jpg");
   background-size: cover;
-  background-position: center center; /* IMPORTANT */
+  background-position: center top;
   background-repeat: no-repeat;
-  position: relative;
   overflow: hidden;
 }
 
-/* Dark overlay (optional but clean) */
+/* Overlay */
 .home-hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.7)
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.65)
   );
+  z-index: 1;
 }
 
-/* Bottom centered text */
+/* Bottom text */
 .home-bottom-text {
   position: absolute;
   bottom: 40px;
@@ -141,15 +153,15 @@ body {
 
 /* ================= PURCHASE ================= */
 .purchase-wrap {
-  min-height: 100vh;
-  padding-top: 180px;       /* HEADER SPACE */
+  min-height: calc(100vh - var(--header-height));
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   background: #000;
 }
 
 .purchase-card {
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   border: 1px solid #333;
   padding: 40px;
   width: 380px;
@@ -213,6 +225,4 @@ body {
   text-align: center;
   padding: 16px;
   font-size: 13px;
-  position: relative;
-  z-index: 10;
 }
