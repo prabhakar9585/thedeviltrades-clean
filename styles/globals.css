@@ -91,42 +91,39 @@ body {
 }
 
 /* ================= HOME HERO ================= */
+/* ================= HOME HERO (FINAL FIX) ================= */
+
 .home-hero {
   min-height: 100vh;
-  padding-top: 160px;       /* HEADER SPACE */
   width: 100%;
   background-image: url("/devil-bg.jpg");
-  background-size: cover;
-  background-position: top center;
+  background-size: contain;      /* 🔥 FULL IMAGE – NO CUT */
+  background-position: center top;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.overlay {
-  width: 100%;
-  height: 100%;
+  background-color: #000;        /* fill empty space if image is tall */
   position: relative;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.6)
-  );
 }
 
-.bottom-text {
+/* overlay without hiding image */
+.hero-overlay {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* bottom-center text */
+.hero-footer-text {
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;                  /* footer-like position */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  max-width: 700px;
+  max-width: 800px;
   padding: 0 20px;
 }
 
-.bottom-text p {
-  color: #fff;
+.hero-footer-text p {
+  color: #ffffff;
   font-size: 18px;
   line-height: 1.6;
 }
