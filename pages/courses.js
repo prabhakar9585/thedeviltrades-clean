@@ -1,7 +1,7 @@
 export default function Courses() {
   return (
-    <div className="courses-hero">
-      {/* Image only, no text */}
+    <div className="courses-wrap">
+      <img src="/courses-bg.jpg" alt="Courses Coming Soon" />
     </div>
   );
 }

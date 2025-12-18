@@ -5,11 +5,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Header />
-
-      <main>
-        <Component {...pageProps} />
-      </main>
-
+      <Component {...pageProps} />
       <footer className="footer">
         Disclaimer: Trading involves risk. We do not guarantee profits.
         Educational purpose only.
