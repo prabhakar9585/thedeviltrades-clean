@@ -212,13 +212,15 @@ body {
 }
 
 /* ================= PURCHASE PAGE ================= */
+/* ================= PURCHASE PAGE ================= */
 .purchase-page {
   min-height: calc(100vh - 160px);
   background: #000;
-  padding-top: 220px;
+  padding-top: 240px; /* enough space for header + logo */
   padding-bottom: 80px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .purchase-card {
@@ -230,11 +232,14 @@ body {
   text-align: center;
 }
 
+/* TITLE */
 .purchase-card h1 {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: #ff4d00;
+  font-size: 26px;
 }
 
+/* INPUTS */
 .purchase-card input {
   width: 100%;
   padding: 12px;
@@ -249,19 +254,21 @@ body {
   color: #777;
 }
 
+/* PRICE */
 .price {
-  margin: 14px 0;
+  margin: 16px 0;
   color: #ff4d00;
   font-weight: 600;
 }
 
+/* TERMS */
 .terms {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .terms a {
@@ -269,9 +276,10 @@ body {
   text-decoration: underline;
 }
 
+/* BUY BUTTON */
 .buy-btn {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 24px;
   padding: 14px;
   background: #555;
   border: none;
