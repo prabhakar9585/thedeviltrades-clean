@@ -188,3 +188,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+/* FORCE DEVIL V.3 TEXT TO WHITE */
+.sub-title {
+  color: #ffffff !important;
+}
