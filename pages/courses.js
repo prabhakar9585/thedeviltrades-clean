@@ -1,9 +1,7 @@
 export default function Courses() {
   return (
-    <section className="courses-hero">
-      <div className="courses-overlay">
-        {/* Optional text later */}
-      </div>
-    </section>
+    <div className="courses-hero">
+      {/* Image only, no text */}
+    </div>
   );
 }

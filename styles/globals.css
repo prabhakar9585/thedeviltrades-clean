@@ -129,4 +129,15 @@ body {
   width: 100%;
   height: 100%;
 }
+/* ================= COURSES PAGE FIX ================= */
+
+.courses-hero {
+  width: 100%;
+  height: 100vh;                 /* FULL SCREEN HEIGHT */
+  background-image: url("/courses-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;      /* SHOW FULL IMAGE */
+  background-color: #000;        /* BLACK BORDER AREA */
+}
 
