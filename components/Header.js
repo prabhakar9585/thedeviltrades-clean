@@ -39,7 +39,28 @@ export default function Header() {
           </div>
 
           <Link href="/accuracy">Accuracy</Link>
-          <Link href="/purchase">Purchase</Link>
+
+          {/* PURCHASE DROPDOWN */}
+          <div className="dropdown">
+            <span className="dropdown-title">Purchase ▾</span>
+
+            <div className="dropdown-menu">
+              <div className="sub-dropdown">
+                <span className="sub-title">Indicator ▸</span>
+
+                <div className="sub-menu">
+                  <Link href="/purchase/devil-v3">
+                    THE DEVIL V.3
+                  </Link>
+                </div>
+              </div>
+
+              <div className="dropdown-item disabled">
+                Trading Bot <small>(Coming Soon)</small>
+              </div>
+            </div>
+          </div>
+
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </nav>

@@ -4,10 +4,11 @@ export default function DevilV3() {
   const [name, setName] = useState("");
   const [tvId, setTvId] = useState("");
   const [mobile, setMobile] = useState("");
+  const [referral, setReferral] = useState("");
   const [agree, setAgree] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
-  // Enable Buy Now only if ALL conditions met
+  // Enable Buy Now only if REQUIRED fields filled
   useEffect(() => {
     if (
       name.trim() &&
@@ -37,11 +38,17 @@ export default function DevilV3() {
       amount: data.amount,
       currency: "INR",
       name: "Devil Trades",
-      description: "THE DEVIL V3",
+      description: "THE DEVIL V.3",
       order_id: data.id,
       handler: function (response) {
         alert("Payment Successful!");
-        console.log(response);
+        console.log({
+          response,
+          name,
+          tvId,
+          mobile,
+          referral,
+        });
       },
       prefill: {
         name,
@@ -57,10 +64,10 @@ export default function DevilV3() {
   return (
     <div className="purchase-wrap">
       <div className="purchase-card">
-        <h1>THE DEVIL V3</h1>
+        <h1>THE DEVIL V.3</h1>
 
         <input
-          placeholder="Name"
+          placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -78,6 +85,12 @@ export default function DevilV3() {
           onChange={(e) => setMobile(e.target.value)}
         />
 
+        <input
+          placeholder="Referral Code (Optional)"
+          value={referral}
+          onChange={(e) => setReferral(e.target.value)}
+        />
+
         <p className="price">Price per Month: ₹5000 INR</p>
 
         <div className="terms">
@@ -88,7 +101,9 @@ export default function DevilV3() {
           />
           <span>
             I agree to the{" "}
-            <a href="/terms" target="_blank">Terms & Conditions</a>
+            <a href="/terms" target="_blank">
+              Terms & Conditions
+            </a>
           </span>
         </div>
 
