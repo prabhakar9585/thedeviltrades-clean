@@ -9,14 +9,9 @@ export default function DevilV3() {
   const [enabled, setEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Enable BUY NOW only if required fields are filled
+  // ✅ Enable BUY NOW only if required fields are filled
   useEffect(() => {
-    if (
-      name.trim() &&
-      tvId.trim() &&
-      mobile.length === 10 &&
-      agree
-    ) {
+    if (name.trim() && tvId.trim() && mobile.length === 10 && agree) {
       setEnabled(true);
     } else {
       setEnabled(false);
@@ -25,50 +20,60 @@ export default function DevilV3() {
 
   const handleBuyNow = async () => {
     if (!enabled || loading) return;
+
     setLoading(true);
 
     try {
-      // 1️⃣ Create Razorpay order
+      // 🔹 1. Create order
       const res = await fetch("/api/razorpay/order", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 5000 }),
       });
+
+      if (!res.ok) {
+        throw new Error("Order API failed");
+      }
 
       const order = await res.json();
 
-      // 2️⃣ Razorpay options
+      if (!order || !order.id) {
+        throw new Error("Invalid Razorpay order response");
+      }
+
+      // 🔹 2. Razorpay options
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: order.amount,
-        currency: "INR",
+        currency: order.currency,
         name: "Devil Trades",
         description: "THE DEVIL V.3 Subscription",
         order_id: order.id,
 
         handler: async function (response) {
-          // 3️⃣ Save payment + user data
-          const saveRes = await fetch("/api/payment-success", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name,
-              tvId,
-              mobile,
-              referral,
-              paymentId: response.razorpay_payment_id,
-              orderId: response.razorpay_order_id,
-            }),
-          });
+          try {
+            // 🔹 3. Save payment info (optional backend)
+            await fetch("/api/payment-success", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name,
+                tvId,
+                mobile,
+                referral,
+                paymentId: response.razorpay_payment_id,
+                orderId: response.razorpay_order_id,
+              }),
+            });
 
-          const data = await saveRes.json();
-
-          // 4️⃣ Redirect to success page
-          window.location.href = `/purchase/success?pid=${data.paymentId}`;
+            // 🔹 4. Redirect success
+            window.location.href = `/purchase/success?pid=${response.razorpay_payment_id}`;
+          } catch (err) {
+            console.error("Payment save failed:", err);
+            alert("Payment successful, but data save failed.");
+          }
         },
 
         prefill: {
-          name: name,
+          name,
           contact: mobile,
         },
 
@@ -77,12 +82,16 @@ export default function DevilV3() {
         },
       };
 
-      // 5️⃣ Open Razorpay
-      const rzp = new window.Razorpay(options);
-      rzp.open();
+      // 🔹 5. Open Razorpay safely
+      if (typeof window !== "undefined" && window.Razorpay) {
+        const rzp = new window.Razorpay(options);
+        rzp.open();
+      } else {
+        throw new Error("Razorpay SDK not loaded");
+      }
     } catch (err) {
-      alert("Something went wrong. Please try again.");
       console.error(err);
+      alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
