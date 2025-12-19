@@ -302,3 +302,20 @@ body {
   cursor: not-allowed;
   font-size: 14px;
 }
+/* ================= FIX PURCHASE ALIGNMENT ================= */
+
+.purchase-wrap {
+  min-height: calc(100vh - 160px);
+  padding-top: 240px; /* header + logo safe space */
+  padding-bottom: 80px;
+
+  display: flex;
+  justify-content: center;   /* CENTER HORIZONTALLY */
+  align-items: flex-start;   /* START FROM TOP */
+  background: #000;
+}
+
+/* Ensure card is NOT pushed left */
+.purchase-card {
+  margin: 0 auto;
+}
