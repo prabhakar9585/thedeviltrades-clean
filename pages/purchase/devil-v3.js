@@ -7,8 +7,9 @@ export default function DevilV3() {
   const [referral, setReferral] = useState("");
   const [agree, setAgree] = useState(false);
   const [enabled, setEnabled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // Enable Buy Now only if REQUIRED fields filled
+  // Enable BUY NOW only if required fields are filled
   useEffect(() => {
     if (
       name.trim() &&
@@ -23,46 +24,72 @@ export default function DevilV3() {
   }, [name, tvId, mobile, agree]);
 
   const handleBuyNow = async () => {
-    if (!enabled) return;
+    if (!enabled || loading) return;
+    setLoading(true);
 
-    const res = await fetch("/api/razorpay/order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: 5000 }),
-    });
+    try {
+      // 1️⃣ Create Razorpay order
+      const res = await fetch("/api/razorpay/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: 5000 }),
+      });
 
-    const data = await res.json();
+      const order = await res.json();
 
-    const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-      amount: data.amount,
-      currency: "INR",
-      name: "Devil Trades",
-      description: "THE DEVIL V.3",
-      order_id: data.id,
-      handler: function (response) {
-        alert("Payment Successful!");
-        console.log({
-          response,
-          name,
-          tvId,
-          mobile,
-          referral,
-        });
-      },
-      prefill: {
-        name,
-        contact: mobile,
-      },
-      theme: { color: "#ff3c00" },
-    };
+      // 2️⃣ Razorpay options
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: "INR",
+        name: "Devil Trades",
+        description: "THE DEVIL V.3 Subscription",
+        order_id: order.id,
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
+        handler: async function (response) {
+          // 3️⃣ Save payment + user data
+          const saveRes = await fetch("/api/payment-success", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name,
+              tvId,
+              mobile,
+              referral,
+              paymentId: response.razorpay_payment_id,
+              orderId: response.razorpay_order_id,
+            }),
+          });
+
+          const data = await saveRes.json();
+
+          // 4️⃣ Redirect to success page
+          window.location.href = `/purchase/success?pid=${data.paymentId}`;
+        },
+
+        prefill: {
+          name: name,
+          contact: mobile,
+        },
+
+        theme: {
+          color: "#ff4d00",
+        },
+      };
+
+      // 5️⃣ Open Razorpay
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (err) {
+      alert("Something went wrong. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="purchase-wrap">
+    <div className="purchase-page">
       <div className="purchase-card">
         <h1>THE DEVIL V.3</h1>
 
@@ -80,9 +107,11 @@ export default function DevilV3() {
 
         <input
           placeholder="Mobile Number"
-          value={mobile}
           maxLength="10"
-          onChange={(e) => setMobile(e.target.value)}
+          value={mobile}
+          onChange={(e) =>
+            setMobile(e.target.value.replace(/\D/g, ""))
+          }
         />
 
         <input
@@ -101,7 +130,7 @@ export default function DevilV3() {
           />
           <span>
             I agree to the{" "}
-            <a href="/terms" target="_blank">
+            <a href="/terms" target="_blank" rel="noreferrer">
               Terms & Conditions
             </a>
           </span>
@@ -109,10 +138,10 @@ export default function DevilV3() {
 
         <button
           className={`buy-btn ${enabled ? "active" : ""}`}
-          disabled={!enabled}
+          disabled={!enabled || loading}
           onClick={handleBuyNow}
         >
-          BUY NOW
+          {loading ? "PROCESSING..." : "BUY NOW"}
         </button>
       </div>
     </div>
