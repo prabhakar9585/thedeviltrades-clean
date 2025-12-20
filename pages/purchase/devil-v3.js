@@ -24,22 +24,27 @@ export default function DevilV3() {
     setLoading(true);
 
     try {
-      // 🔹 1. Create order
+      // 🔹 STEP 1: Create Razorpay Order
       const res = await fetch("/api/razorpay/order", {
         method: "POST",
       });
 
       if (!res.ok) {
-        throw new Error("Order API failed");
+        throw new Error("Failed to create Razorpay order");
       }
 
       const order = await res.json();
 
       if (!order || !order.id) {
-        throw new Error("Invalid Razorpay order response");
+        throw new Error("Invalid order response from server");
       }
 
-      // 🔹 2. Razorpay options
+      // 🔹 STEP 2: Check Razorpay SDK
+      if (typeof window === "undefined" || !window.Razorpay) {
+        throw new Error("Razorpay SDK not loaded");
+      }
+
+      // 🔹 STEP 3: Razorpay Options
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
         amount: order.amount,
@@ -50,7 +55,7 @@ export default function DevilV3() {
 
         handler: async function (response) {
           try {
-            // 🔹 3. Save payment info (optional backend)
+            // 🔹 Optional: Save payment info
             await fetch("/api/payment-success", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -64,16 +69,19 @@ export default function DevilV3() {
               }),
             });
 
-            // 🔹 4. Redirect success
-            window.location.href = `/purchase/success?pid=${response.razorpay_payment_id}`;
+            // 🔹 Redirect to success page
+            window.location.href =
+              `/purchase/success?pid=${response.razorpay_payment_id}`;
           } catch (err) {
-            console.error("Payment save failed:", err);
-            alert("Payment successful, but data save failed.");
+            console.error("Payment saved failed:", err);
+            alert(
+              "Payment successful, but saving data failed. Please contact support."
+            );
           }
         },
 
         prefill: {
-          name,
+          name: name,
           contact: mobile,
         },
 
@@ -82,16 +90,12 @@ export default function DevilV3() {
         },
       };
 
-      // 🔹 5. Open Razorpay safely
-      if (typeof window !== "undefined" && window.Razorpay) {
-        const rzp = new window.Razorpay(options);
-        rzp.open();
-      } else {
-        throw new Error("Razorpay SDK not loaded");
-      }
+      // 🔹 STEP 4: Open Razorpay Checkout
+      const rzp = new window.Razorpay(options);
+      rzp.open();
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Please try again.");
+      console.error("Payment Error:", err);
+      alert("Payment system error. Please refresh and try again.");
     } finally {
       setLoading(false);
     }
