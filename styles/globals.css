@@ -215,12 +215,12 @@ body {
   padding-bottom: 120px;
 
   display: flex;
-  justify-content: flex-start; /* LEFT ALIGN */
+  justify-content: center;   /* KEEP CENTER */
   align-items: flex-start;
 
   background-image: url("/purchase-bg.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: 35% center; /* 🔥 MOVE DEVIL LEFT */
   background-repeat: no-repeat;
 
   position: relative;
