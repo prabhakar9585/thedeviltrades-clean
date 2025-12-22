@@ -459,3 +459,17 @@ body {
     padding-bottom: 60px;
   }
 }
+/* ================= MOBILE HERO REAL FIX ================= */
+@media (max-width: 768px) {
+  .home-hero {
+    background-image: none !important;
+    height: auto !important;
+    padding: 0;
+  }
+
+  .mobile-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
