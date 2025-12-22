@@ -444,3 +444,18 @@ body {
     padding-bottom: 80px;
   }
 }
+/* ================= REAL MOBILE HERO FIX ================= */
+@media (max-width: 768px) {
+  .home-hero {
+    height: auto !important;
+    min-height: unset !important;
+
+    aspect-ratio: 9 / 16;     /* 🔥 forces correct mobile frame */
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    padding-top: 120px;       /* header safe */
+    padding-bottom: 60px;
+  }
+}
