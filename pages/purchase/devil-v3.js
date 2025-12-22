@@ -9,7 +9,7 @@ export default function DevilV3() {
   const [enabled, setEnabled] = useState(false);
   const [showQR, setShowQR] = useState(false);
 
-  // Enable BUY NOW only if required fields are filled
+  // Enable BUY NOW
   useEffect(() => {
     if (name.trim() && tvId.trim() && mobile.length === 10 && agree) {
       setEnabled(true);
@@ -23,30 +23,20 @@ export default function DevilV3() {
     setShowQR(true);
   };
 
-  const handleWhatsAppConfirm = () => {
-    const message = `
-Hello Devil Trades 👋
+  const openWhatsApp = () => {
+    const msg = encodeURIComponent(
+      `Hello Devil Trades,\n\nI have completed UPI payment for THE DEVIL V.3.\n\nName: ${name}\nTradingView ID: ${tvId}\nMobile: ${mobile}\nReferral: ${referral || "N/A"}`
+    );
 
-I have completed the payment for *THE DEVIL V.3*.
-
-Name: ${name}
-TradingView ID: ${tvId}
-Mobile: ${mobile}
-Referral: ${referral || "N/A"}
-
-Please find the payment screenshot attached.
-`;
-
-    const whatsappUrl = `https://wa.me/919585678469?text=${encodeURIComponent(
-      message
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
+    window.open(
+      `https://wa.me/919585678469?text=${msg}`,
+      "_blank"
+    );
   };
 
   return (
-    <div className="purchase-page">
-      <div className="purchase-card">
+    <div className="purchase-wrap">
+      <div className="purchase-card devil-left">
         <h1>THE DEVIL V.3</h1>
 
         <input
@@ -101,36 +91,32 @@ Please find the payment screenshot attached.
         </button>
       </div>
 
-      {/* ================== QR MODAL ================== */}
+      {/* 🔥 UPI QR OVERLAY */}
       {showQR && (
         <div className="qr-overlay">
           <div className="qr-box">
             <h2>Pay via UPI</h2>
-
             <img
               src="/upi-qr.png"
-              alt="UPI QR Code"
-              style={{ width: "260px", margin: "20px 0" }}
+              alt="UPI QR"
+              style={{ width: "220px", margin: "20px 0" }}
             />
+            <p>Scan & complete ₹5000 payment</p>
 
-            <p>
-              Amount: <b>₹5000</b>
-            </p>
-            <p>
-              After payment, click the button below and send screenshot on
-              WhatsApp.
-            </p>
-
-            <button className="buy-btn active" onClick={handleWhatsAppConfirm}>
+            <button
+              className="buy-btn active"
+              style={{ marginTop: "16px" }}
+              onClick={openWhatsApp}
+            >
               I HAVE PAID – CONFIRM ON WHATSAPP
             </button>
 
-            <button
-              style={{ marginTop: "10px", background: "transparent", color: "#aaa" }}
+            <p
+              style={{ marginTop: "12px", cursor: "pointer", color: "#aaa" }}
               onClick={() => setShowQR(false)}
             >
               Cancel
-            </button>
+            </p>
           </div>
         </div>
       )}

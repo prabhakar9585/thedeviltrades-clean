@@ -369,3 +369,33 @@ body {
   text-align: center;
   color: #fff;
 }
+/* Move Devil V3 slightly LEFT for visibility */
+.devil-left {
+  transform: translateX(-60px);
+}
+
+/* Purchase background fix */
+.purchase-wrap {
+  background-image: url("/purchase-bg.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+
+/* QR Overlay */
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.qr-box {
+  background: #111;
+  padding: 32px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+}
