@@ -430,3 +430,17 @@ body {
 .price {
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
+/* ================= MOBILE HERO FIX ================= */
+@media (max-width: 768px) {
+  .home-hero {
+    height: auto;
+    min-height: 100vh;
+
+    background-size: contain;   /* 🔥 SHOW FULL IMAGE */
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    padding-top: 80px;          /* space below header */
+    padding-bottom: 80px;
+  }
+}
