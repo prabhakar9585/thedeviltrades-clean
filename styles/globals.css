@@ -96,11 +96,12 @@ body {
   background: #ff4d00;
 }
 
-/* Second level */
+/* Second level – OPEN LEFT */
 .sub-menu {
   position: absolute;
   top: 0;
-  left: 100%;
+  right: 100%;
+  left: auto;
   background: #111;
   min-width: 220px;
   display: none;
@@ -119,15 +120,19 @@ body {
 
 .sub-menu a:hover {
   background: #ff4d00;
+  color: #000;
 }
 
 /* ================= HOME ================= */
 .home-hero {
-  height: 100vh;
+  min-height: calc(100vh - 160px);
+  padding-top: 160px;
+
   background-image: url("/devil-bg.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   background-repeat: no-repeat;
+
   position: relative;
 }
 
@@ -155,12 +160,6 @@ body {
   background: #000;
 }
 
-.courses-wrap img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
 /* ================= FOOTER ================= */
 .footer {
   text-align: center;
@@ -175,7 +174,6 @@ body {
   padding: 200px 40px 60px;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   text-align: center;
   position: relative;
 }
@@ -188,26 +186,6 @@ body {
   z-index: -1;
 }
 
-.indicator-page h1 {
-  color: #fff;
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-.image-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-.image-column img {
-  width: 90%;
-  max-width: 900px;
-  border-radius: 8px;
-  border: 1px solid #333;
-}
-
 /* ================= PURCHASE PAGE ================= */
 .purchase-wrap {
   min-height: calc(100vh - 160px);
@@ -215,18 +193,17 @@ body {
   padding-bottom: 120px;
 
   display: flex;
-  justify-content: center;   /* KEEP CENTER */
+  justify-content: center;
   align-items: flex-start;
 
   background-image: url("/purchase-bg.jpg");
   background-size: cover;
-  background-position: 35% center; /* 🔥 MOVE DEVIL LEFT */
+  background-position: 35% center;
   background-repeat: no-repeat;
 
   position: relative;
 }
 
-/* Overlay */
 .purchase-wrap::before {
   content: "";
   position: absolute;
@@ -235,10 +212,9 @@ body {
   z-index: 0;
 }
 
-/* Purchase Card */
 .purchase-card {
   background: rgba(0, 0, 0, 0.88);
-  border: 1px solid #333;
+  border: 1px solid rgba(255, 77, 0, 0.35);
   padding: 40px;
   width: 100%;
   max-width: 420px;
@@ -246,66 +222,12 @@ body {
 
   position: relative;
   z-index: 1;
+  margin-left: 80px;
 
-  margin-left: 80px; /* 🔥 Devil V.3 visible fix */
+  box-shadow: 0 0 35px rgba(0,0,0,0.85);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .purchase-wrap {
-    justify-content: center;
-  }
-
-  .purchase-card {
-    margin-left: 0;
-  }
-}
-
-/* TITLE */
-.purchase-card h1 {
-  margin-bottom: 30px;
-  color: #ff4d00;
-  font-size: 26px;
-}
-
-/* INPUTS */
-.purchase-card input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 14px;
-  background: #111;
-  border: 1px solid #333;
-  color: #fff;
-  text-align: center;
-}
-
-.purchase-card input::placeholder {
-  color: #777;
-}
-
-/* PRICE */
-.price {
-  margin: 16px 0;
-  color: #ff4d00;
-  font-weight: 600;
-}
-
-/* TERMS */
-.terms {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  margin-top: 12px;
-}
-
-.terms a {
-  color: #ff4d00;
-  text-decoration: underline;
-}
-
-/* BUY BUTTON */
+/* ================= BUTTONS ================= */
 .buy-btn {
   width: 100%;
   margin-top: 24px;
@@ -324,7 +246,7 @@ body {
   opacity: 1;
 }
 
-/* ================= QR OVERLAY ================= */
+/* ================= QR ================= */
 .qr-overlay {
   position: fixed;
   inset: 0;
@@ -339,137 +261,23 @@ body {
   background: #111;
   padding: 32px;
   border-radius: 10px;
-  text-align: center;
   width: 320px;
+  text-align: center;
 }
 
-/* ================= DISABLED ITEMS ================= */
-.dropdown-item {
-  padding: 10px 16px;
-  color: #777;
-  cursor: not-allowed;
-  font-size: 14px;
-}
-/* ================= SUBMENU OPEN TO LEFT ================= */
-.dropdown .sub-menu {
-  left: auto;
-  right: 100%;
-}
-/* ================= SAFE UI POLISH (STEP 3) ================= */
-
-/* 🔹 Purchase Card – Premium Look (NO POSITION CHANGE) */
-.purchase-card {
-  border: 1px solid rgba(255, 77, 0, 0.35);
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(2px);
-}
-
-/* 🔹 Inputs – Better Focus Feedback */
-.purchase-card input {
-  transition: border 0.25s ease, box-shadow 0.25s ease;
-}
-
-.purchase-card input:focus {
-  outline: none;
-  border-color: #ff4d00;
-  box-shadow: 0 0 8px rgba(255, 77, 0, 0.5);
-}
-
-/* 🔹 BUY NOW Button – Smooth Hover (NO MOVE) */
-.buy-btn.active {
-  transition: background 0.25s ease, box-shadow 0.25s ease;
-}
-
-.buy-btn.active:hover {
-  box-shadow: 0 0 14px rgba(255, 77, 0, 0.7);
-}
-
-/* 🔹 Disabled Button – Clearer */
-.buy-btn:not(.active) {
-  background: #444;
-  color: #999;
-}
-
-/* ================= DROPDOWN CLARITY ================= */
-
-/* Purchase → Indicator hover clarity */
-.dropdown-menu a,
-.dropdown-menu .sub-title {
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-/* Highlight active item */
-.dropdown-menu a:hover,
-.dropdown-menu .sub-title:hover {
-  background: #ff4d00;
-  color: #000 !important;
-}
-
-/* Disabled item visual clarity */
-.dropdown-item {
-  opacity: 0.45;
-}
-
-/* ================= MOBILE SAFETY (NO DESKTOP CHANGE) ================= */
-
+/* ================= MOBILE FIX (FINAL & SAFE) ================= */
 @media (max-width: 768px) {
+  .home-hero {
+    min-height: 100vh;
+    padding-top: 120px;
+
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
   .purchase-card {
     margin: 0 auto;
     width: 90%;
-  }
-
-  .dropdown-menu {
-    min-width: 180px;
-  }
-}
-
-/* ================= VISUAL BALANCE ONLY ================= */
-
-/* Slight text clarity improvement */
-.purchase-card h1,
-.price {
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-}
-/* ================= MOBILE HERO FIX ================= */
-@media (max-width: 768px) {
-  .home-hero {
-    height: auto;
-    min-height: 100vh;
-
-    background-size: contain;   /* 🔥 SHOW FULL IMAGE */
-    background-position: center center;
-    background-repeat: no-repeat;
-
-    padding-top: 80px;          /* space below header */
-    padding-bottom: 80px;
-  }
-}
-/* ================= REAL MOBILE HERO FIX ================= */
-@media (max-width: 768px) {
-  .home-hero {
-    height: auto !important;
-    min-height: unset !important;
-
-    aspect-ratio: 9 / 16;     /* 🔥 forces correct mobile frame */
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-
-    padding-top: 120px;       /* header safe */
-    padding-bottom: 60px;
-  }
-}
-/* ================= MOBILE HERO REAL FIX ================= */
-@media (max-width: 768px) {
-  .home-hero {
-    background-image: none !important;
-    height: auto !important;
-    padding: 0;
-  }
-
-  .mobile-hero-img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 }

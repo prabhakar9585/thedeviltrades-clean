@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 
+const GOOGLE_SHEET_WEBHOOK =
+  "https://script.google.com/macros/s/AKfycbwqxTzDKrG2SkNZFrKevBS_evbA7X7cjkUl0y-4yjo0LFQ-Q2uCzHWd2TFcElUtu-4GyQ/exec";
+
 export default function DevilV3() {
   const [name, setName] = useState("");
   const [tvId, setTvId] = useState("");
@@ -11,12 +14,7 @@ export default function DevilV3() {
 
   // ✅ Enable BUY NOW only when required fields are filled
   useEffect(() => {
-    if (
-      name.trim() &&
-      tvId.trim() &&
-      mobile.length === 10 &&
-      agree
-    ) {
+    if (name.trim() && tvId.trim() && mobile.length === 10 && agree) {
       setEnabled(true);
     } else {
       setEnabled(false);
@@ -29,8 +27,32 @@ export default function DevilV3() {
     setShowQR(true);
   };
 
-  // ✅ WhatsApp confirmation
-  const openWhatsApp = () => {
+  // ✅ Save data to Google Sheet
+  const saveToGoogleSheet = async () => {
+    try {
+      await fetch(GOOGLE_SHEET_WEBHOOK, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          tvId,
+          mobile,
+          referral,
+          product: "THE DEVIL V.3",
+        }),
+      });
+    } catch (error) {
+      console.error("Google Sheet Error:", error);
+    }
+  };
+
+  // ✅ WhatsApp confirmation (WITH AUTO SAVE)
+  const openWhatsApp = async () => {
+    // 🔥 AUTO SAVE BEFORE WHATSAPP OPENS
+    await saveToGoogleSheet();
+
     const msg = encodeURIComponent(
       `Hello Devil Trades 👋\n\nI have completed UPI payment for THE DEVIL V.3.\n\nName: ${name}\nTradingView ID: ${tvId}\nMobile: ${mobile}\nReferral: ${
         referral || "N/A"
