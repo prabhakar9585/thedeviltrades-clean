@@ -350,3 +350,8 @@ body {
   cursor: not-allowed;
   font-size: 14px;
 }
+/* ================= SUBMENU OPEN TO LEFT ================= */
+.dropdown .sub-menu {
+  left: auto;
+  right: 100%;
+}
