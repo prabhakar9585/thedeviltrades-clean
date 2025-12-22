@@ -62,10 +62,6 @@ body {
   position: relative;
 }
 
-.dropdown-title {
-  cursor: pointer;
-}
-
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -80,28 +76,14 @@ body {
   display: block;
 }
 
-/* First level */
 .sub-dropdown {
   position: relative;
 }
 
-.sub-title {
-  display: block;
-  padding: 10px 16px;
-  color: #fff !important;
-  cursor: pointer;
-}
-
-.sub-title:hover {
-  background: #ff4d00;
-}
-
-/* Second level – OPEN LEFT */
 .sub-menu {
   position: absolute;
   top: 0;
   right: 100%;
-  left: auto;
   background: #111;
   min-width: 220px;
   display: none;
@@ -111,28 +93,13 @@ body {
   display: block;
 }
 
-.sub-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.sub-menu a:hover {
-  background: #ff4d00;
-  color: #000;
-}
-
 /* ================= HOME ================= */
 .home-hero {
-  min-height: calc(100vh - 160px);
-  padding-top: 160px;
-
+  height: calc(100vh - 160px);
   background-image: url("/devil-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   position: relative;
 }
 
@@ -157,7 +124,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+}
+
+.courses-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* ================= FOOTER ================= */
@@ -168,39 +140,17 @@ body {
   font-size: 13px;
 }
 
-/* ================= INDICATOR PAGES ================= */
-.indicator-page {
-  min-height: calc(100vh - 160px);
-  padding: 200px 40px 60px;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  position: relative;
-}
-
-.indicator-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: -1;
-}
-
-/* ================= PURCHASE PAGE ================= */
+/* ================= PURCHASE ================= */
 .purchase-wrap {
   min-height: calc(100vh - 160px);
   padding-top: 240px;
   padding-bottom: 120px;
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
   background-image: url("/purchase-bg.jpg");
   background-size: cover;
-  background-position: 35% center;
-  background-repeat: no-repeat;
-
+  background-position: center;
   position: relative;
 }
 
@@ -208,105 +158,31 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 0;
+  background: rgba(0,0,0,0.75);
 }
 
 .purchase-card {
-  background: rgba(0, 0, 0, 0.88);
-  border: 1px solid rgba(255, 77, 0, 0.35);
-  padding: 40px;
-  width: 100%;
-  max-width: 420px;
-  text-align: center;
-
   position: relative;
   z-index: 1;
-  margin-left: 80px;
-
-  box-shadow: 0 0 35px rgba(0,0,0,0.85);
-}
-
-/* ================= BUTTONS ================= */
-.buy-btn {
   width: 100%;
-  margin-top: 24px;
-  padding: 14px;
-  background: #555;
-  border: none;
-  font-weight: bold;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.buy-btn.active {
-  background: #ff4d00;
-  color: #000;
-  cursor: pointer;
-  opacity: 1;
-}
-
-/* ================= QR ================= */
-.qr-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.qr-box {
-  background: #111;
-  padding: 32px;
-  border-radius: 10px;
-  width: 320px;
+  max-width: 420px;
+  padding: 40px;
+  background: rgba(0,0,0,0.88);
+  border: 1px solid #333;
   text-align: center;
 }
 
-/* ================= MOBILE FIX (FINAL & SAFE) ================= */
+/* ================= MOBILE FIX (ONLY THIS) ================= */
 @media (max-width: 768px) {
   .home-hero {
-    min-height: 100vh;
-    padding-top: 120px;
-
-    background-size: contain;
+    height: auto;
+    min-height: calc(100vh - 120px);
+    background-size: cover;
     background-position: center top;
-    background-repeat: no-repeat;
   }
 
   .purchase-card {
-    margin: 0 auto;
     width: 90%;
-  }
-}
-/* ================= FINAL HERO CONTROL (NO CORE CHANGE) ================= */
-
-/* Desktop: hide mobile image */
-.mobile-hero-img {
-  display: none;
-}
-
-/* Mobile-only behavior */
-@media (max-width: 768px) {
-  /* Disable background-image completely */
-  .home-hero {
-    background-image: none !important;
-    padding-top: 0;
-    min-height: auto;
-  }
-
-  /* Show mobile image */
-  .mobile-hero-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* Prevent horizontal overflow */
-  html, body {
-    overflow-x: hidden;
+    margin: 0 auto;
   }
 }
