@@ -281,3 +281,32 @@ body {
     width: 90%;
   }
 }
+/* ================= FINAL HERO CONTROL (NO CORE CHANGE) ================= */
+
+/* Desktop: hide mobile image */
+.mobile-hero-img {
+  display: none;
+}
+
+/* Mobile-only behavior */
+@media (max-width: 768px) {
+  /* Disable background-image completely */
+  .home-hero {
+    background-image: none !important;
+    padding-top: 0;
+    min-height: auto;
+  }
+
+  /* Show mobile image */
+  .mobile-hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+  }
+}
