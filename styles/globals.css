@@ -62,10 +62,6 @@ body {
   position: relative;
 }
 
-.dropdown-title {
-  cursor: pointer;
-}
-
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -80,7 +76,6 @@ body {
   display: block;
 }
 
-/* First level */
 .sub-dropdown {
   position: relative;
 }
@@ -88,7 +83,7 @@ body {
 .sub-title {
   display: block;
   padding: 10px 16px;
-  color: #fff !important;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -96,7 +91,6 @@ body {
   background: #ff4d00;
 }
 
-/* Second level */
 .sub-menu {
   position: absolute;
   top: 0;
@@ -121,115 +115,80 @@ body {
   background: #ff4d00;
 }
 
-/* ================= HOME ================= */
-.home-hero {
-  height: 100vh;
-  background-image: url("/devil-bg.jpg");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  position: relative;
+.dropdown-item {
+  padding: 10px 16px;
+  color: #777;
+  cursor: not-allowed;
 }
 
-.home-bottom-text {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  max-width: 900px;
-  padding: 0 20px;
-}
-
-.home-bottom-text p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* ================= COURSES ================= */
-.courses-wrap {
-  height: calc(100vh - 160px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-}
-
-.courses-wrap img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* ================= FOOTER ================= */
-.footer {
-  text-align: center;
-  padding: 16px;
-  color: #aaa;
-  font-size: 13px;
-}
-
-/* ================= INDICATOR PAGES ================= */
-.indicator-page {
+/* ================= PURCHASE HOME ================= */
+.purchase-home {
   min-height: calc(100vh - 160px);
-  padding: 200px 40px 60px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-align: center;
-  position: relative;
-}
-
-/* Dark overlay */
-.indicator-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: -1;
-}
-
-.indicator-page h1 {
-  color: #fff;
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-/* Image column (one by one) */
-.image-column {
+  background: #000;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 40px;
 }
 
-.image-column img {
-  width: 90%;
-  max-width: 900px;
-  height: auto;
-  border-radius: 8px;
+.purchase-home .card {
+  padding: 40px 60px;
   border: 1px solid #333;
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.purchase-home .card:hover {
+  background: #ff4d00;
+  color: #000;
+}
+
+.purchase-home .disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* ================= PURCHASE PAGE ================= */
-/* ================= PURCHASE PAGE ================= */
-.purchase-page {
+.purchase-wrap {
   min-height: calc(100vh - 160px);
-  background: #000;
-  padding-top: 240px; /* enough space for header + logo */
-  padding-bottom: 80px;
+  padding-top: 240px;
+  padding-bottom: 120px;
+
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* MOVE LEFT */
   align-items: flex-start;
+  padding-left: 12%;
+
+  background-image: url("/purchase-bg.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+.purchase-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
 }
 
 .purchase-card {
-  background: rgba(0, 0, 0, 0.88);
-  border: 1px solid #333;
+  position: relative;
+  z-index: 1;
+
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid #444;
   padding: 40px;
   width: 100%;
   max-width: 420px;
   text-align: center;
+
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
 }
 
 /* TITLE */
@@ -268,7 +227,6 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  margin-top: 12px;
 }
 
 .terms a {
@@ -295,93 +253,7 @@ body {
   opacity: 1;
 }
 
-/* ================= DISABLED DROPDOWN ITEM ================= */
-.dropdown-item {
-  padding: 10px 16px;
-  color: #777;
-  cursor: not-allowed;
-  font-size: 14px;
-}
-/* ================= FIX PURCHASE ALIGNMENT ================= */
-
-.purchase-wrap {
-  min-height: calc(100vh - 160px);
-  padding-top: 240px; /* header + logo safe space */
-  padding-bottom: 80px;
-
-  display: flex;
-  justify-content: center;   /* CENTER HORIZONTALLY */
-  align-items: flex-start;   /* START FROM TOP */
-  background: #000;
-}
-
-/* Ensure card is NOT pushed left */
-.purchase-card {
-  margin: 0 auto;
-}
-/* ================= PURCHASE PAGE BACKGROUND ================= */
-
-.purchase-wrap {
-  min-height: calc(100vh - 160px);
-  padding-top: 240px;
-  padding-bottom: 120px; /* fixes footer cut */
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  background-image: url("/purchase-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  position: relative;
-}
-
-/* Dark overlay for readability */
-.purchase-wrap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 0;
-}
-
-/* Keep card above overlay */
-.purchase-card {
-  position: relative;
-  z-index: 1;
-}
-.qr-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.qr-box {
-  background: #111;
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  color: #fff;
-}
-/* Move Devil V3 slightly LEFT for visibility */
-.devil-left {
-  transform: translateX(-60px);
-}
-
-/* Purchase background fix */
-.purchase-wrap {
-  background-image: url("/purchase-bg.jpg");
-  background-size: cover;
-  background-position: center top;
-}
-
-/* QR Overlay */
+/* ================= QR OVERLAY ================= */
 .qr-overlay {
   position: fixed;
   inset: 0;
