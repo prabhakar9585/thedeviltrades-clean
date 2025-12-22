@@ -9,23 +9,32 @@ export default function DevilV3() {
   const [enabled, setEnabled] = useState(false);
   const [showQR, setShowQR] = useState(false);
 
-  // Enable BUY NOW
+  // ✅ Enable BUY NOW only when required fields are filled
   useEffect(() => {
-    if (name.trim() && tvId.trim() && mobile.length === 10 && agree) {
+    if (
+      name.trim() &&
+      tvId.trim() &&
+      mobile.length === 10 &&
+      agree
+    ) {
       setEnabled(true);
     } else {
       setEnabled(false);
     }
   }, [name, tvId, mobile, agree]);
 
+  // ✅ Open QR popup
   const handleBuyNow = () => {
     if (!enabled) return;
     setShowQR(true);
   };
 
+  // ✅ WhatsApp confirmation
   const openWhatsApp = () => {
     const msg = encodeURIComponent(
-      `Hello Devil Trades,\n\nI have completed UPI payment for THE DEVIL V.3.\n\nName: ${name}\nTradingView ID: ${tvId}\nMobile: ${mobile}\nReferral: ${referral || "N/A"}`
+      `Hello Devil Trades 👋\n\nI have completed UPI payment for THE DEVIL V.3.\n\nName: ${name}\nTradingView ID: ${tvId}\nMobile: ${mobile}\nReferral: ${
+        referral || "N/A"
+      }\n\nPlease verify my payment.`
     );
 
     window.open(
@@ -36,7 +45,8 @@ export default function DevilV3() {
 
   return (
     <div className="purchase-wrap">
-      <div className="purchase-card devil-left">
+      {/* PURCHASE FORM */}
+      <div className="purchase-card">
         <h1>THE DEVIL V.3</h1>
 
         <input
@@ -96,11 +106,17 @@ export default function DevilV3() {
         <div className="qr-overlay">
           <div className="qr-box">
             <h2>Pay via UPI</h2>
+
             <img
               src="/upi-qr.png"
               alt="UPI QR"
-              style={{ width: "220px", margin: "20px 0" }}
+              style={{
+                width: "220px",
+                margin: "20px auto",
+                display: "block",
+              }}
             />
+
             <p>Scan & complete ₹5000 payment</p>
 
             <button
@@ -112,7 +128,11 @@ export default function DevilV3() {
             </button>
 
             <p
-              style={{ marginTop: "12px", cursor: "pointer", color: "#aaa" }}
+              style={{
+                marginTop: "12px",
+                cursor: "pointer",
+                color: "#aaa",
+              }}
               onClick={() => setShowQR(false)}
             >
               Cancel
