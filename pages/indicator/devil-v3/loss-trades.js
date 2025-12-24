@@ -4,6 +4,18 @@ const lossImages = [
   "/indicator/devil-v3/loss/3.png",
   "/indicator/devil-v3/loss/4.png",
   "/indicator/devil-v3/loss/5.png",
+  "/indicator/devil-v3/loss/6.png",
+  "/indicator/devil-v3/loss/7.png",
+  "/indicator/devil-v3/loss/8.png",
+  "/indicator/devil-v3/loss/9.png",
+  "/indicator/devil-v3/loss/10.png",
+  "/indicator/devil-v3/loss/11.png",
+  "/indicator/devil-v3/loss/12.png",
+  "/indicator/devil-v3/loss/13.png",
+  "/indicator/devil-v3/loss/14.png",
+  "/indicator/devil-v3/loss/15.png",
+  "/indicator/devil-v3/loss/16.png",
+
 ];
 
 export default function LossTrades() {

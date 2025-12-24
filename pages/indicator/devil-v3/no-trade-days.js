@@ -2,6 +2,8 @@ export default function NoTradeDays() {
   const images = [
     {
       src: "/indicator/devil-v3/no-trade/1.png",
+           "/indicator/devil-v3/no-trade/1.png",
+           "/indicator/devil-v3/no-trade/1.png",
       alt: "No Trade Day 1",
     },
   ];
