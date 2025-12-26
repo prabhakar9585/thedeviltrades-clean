@@ -1,6 +1,6 @@
 export default function LossTrades() {
   // 🔥 CHANGE THIS NUMBER WHEN YOU ADD MORE IMAGES
-  const TOTAL_IMAGES = 31;
+  const TOTAL_IMAGES = 39;
 
   const images = Array.from({ length: TOTAL_IMAGES }, (_, i) => ({
     src: `/indicator/devil-v3/loss/${i + 1}.png`,
