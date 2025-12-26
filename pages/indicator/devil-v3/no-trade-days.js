@@ -17,11 +17,11 @@ export default function NoTradeDays() {
     alt: "No Trade Day 4",
   },
   {
-    src: "/indicator/devil-v3/no-trade/4.png",
+    src: "/indicator/devil-v3/no-trade/5.png",
     alt: "No Trade Day 5",
   },
   {
-    src: "/indicator/devil-v3/no-trade/4.png",
+    src: "/indicator/devil-v3/no-trade/6.png",
     alt: "No Trade Day 6",
   },
 
