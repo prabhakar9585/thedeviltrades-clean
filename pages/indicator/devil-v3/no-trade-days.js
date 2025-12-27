@@ -25,27 +25,27 @@ export default function NoTradeDays() {
     alt: "No Trade Day 6",
   },
   {
-    src: "/indicator/devil-v3/no-trade/6.png",
+    src: "/indicator/devil-v3/no-trade/7.png",
     alt: "No Trade Day 7",
   },
   {
-    src: "/indicator/devil-v3/no-trade/6.png",
+    src: "/indicator/devil-v3/no-trade/8.png",
     alt: "No Trade Day 8",
   },
   {
-    src: "/indicator/devil-v3/no-trade/6.png",
+    src: "/indicator/devil-v3/no-trade/9.png",
     alt: "No Trade Day 9",
   },
   {
-    src: "/indicator/devil-v3/no-trade/6.png",
+    src: "/indicator/devil-v3/no-trade/10.png",
     alt: "No Trade Day 10",
   },
   {
-    src: "/indicator/devil-v3/no-trade/6.png",
+    src: "/indicator/devil-v3/no-trade/11.png",
     alt: "No Trade Day 11",
   },
   {
-    src: "/indicator/devil-v3/no-trade/6.png",
+    src: "/indicator/devil-v3/no-trade/12.png",
     alt: "No Trade Day 12",
   },
 
