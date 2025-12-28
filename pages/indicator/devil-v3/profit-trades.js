@@ -1,6 +1,6 @@
 export default function ProfitTrades() {
   // 🔥 CHANGE THIS NUMBER WHEN YOU ADD MORE IMAGES
-  const TOTAL_IMAGES = 193;
+  const TOTAL_IMAGES = 212;
 
   const images = Array.from({ length: TOTAL_IMAGES }, (_, i) => ({
     src: `/indicator/devil-v3/profit/${i + 1}.png`,

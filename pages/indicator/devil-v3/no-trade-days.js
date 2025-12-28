@@ -1,6 +1,6 @@
 export default function NoTradeDays() {
   // 🔥 CHANGE THIS NUMBER ONLY WHEN YOU ADD MORE IMAGES
-  const TOTAL_IMAGES = 19; // update when you add more no-trade images
+  const TOTAL_IMAGES = 20; // update when you add more no-trade images
 
   const images = Array.from({ length: TOTAL_IMAGES }, (_, i) => ({
     src: `/indicator/devil-v3/no-trade/${i + 1}.png`,
